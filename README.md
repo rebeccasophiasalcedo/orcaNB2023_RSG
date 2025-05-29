@@ -1,2 +1,2 @@
 # orcaNB2023_RSG
-Code used to analyze genomics of redox sensor green sorted cells sampled from Orca Basin in 2023.
+Code used to analyze genomics of redox sensor green sorted cells sampled from Orca Basin in 2023. Supporting Paris et al., in prep.
