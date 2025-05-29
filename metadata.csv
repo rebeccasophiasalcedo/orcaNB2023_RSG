@@ -1,0 +1,34 @@
+file_name,sample_name,CTD,bottle,tube,sample_type,depth_m,amplified,notes
+Ctl-PCRBlank10_S470,NA,NA,NA,NA,PCR blank,NA,yes,H2O input (no template control)
+Ctl-PCRBlank11_S471,NA,NA,NA,NA,PCR blank,NA,yes,H2O input (no template control)
+Ctl-PCRBlank12_S472,NA,NA,NA,NA,PCR blank,NA,yes,H2O input (no template control)
+Ctl-PCRBlank13_S512,NA,NA,NA,NA,PCR blank,NA,yes,H2O input (no template control)
+Ctl-PCRBlank9_S469,NA,NA,NA,NA,PCR blank,NA,yes,H2O input (no template control)
+Ctl-ZymoPCR-E_S465,NA,NA,NA,NA,mock community,NA,yes,Manufacturer-prepared mock community gDNA used as PCR template. 1 ng input
+Ctl-ZymoPCR-F_S466,NA,NA,NA,NA,mock community,NA,yes,Manufacturer-prepared mock community gDNA used as PCR template. 0.1 ng input
+Ctl-ZymoPCR-G_S467,NA,NA,NA,NA,mock community,NA,yes,Manufacturer-prepared mock community gDNA used as PCR template. 0.01 ng input
+Ctl-ZymoPCR-H_S468,NA,NA,NA,NA,mock community,NA,yes,Manufacturer-prepared mock community gDNA used as PCR template. 0.001 ng input
+Orca_NoAmp_13_S505,Orca_NoAmp_13,5,4,A2,Inactive,2202,no,no pre-amplification (Repli-G) but amplified by seqeuncing center
+Orca_NoAmp_13_S505,Orca_NoAmp_13,5,4,A2,Inactive,2202,no,no pre-amplification (Repli-G) but amplified by seqeuncing center
+Orca_NoAmp_15_S506,Orca_NoAmp_15,5,4,C2,Active,2202,no,no pre-amplification (Repli-G) but amplified by seqeuncing center
+Orca_NoAmp_15_S506,Orca_NoAmp_15,5,4,C2,Active,2202,no,no pre-amplification (Repli-G) but amplified by seqeuncing center
+Orca-CTD10BTL6_S511,NA,10,6,NA,insitu,2224,no,regular metagenomics prep? Further inquiries for Miguel/Emilie
+Orca-CTD10BTL6_S511,NA,10,6,NA,insitu,2224,no,regular metagenomics prep? Further inquiries for Miguel/Emilie
+Orca-CTD5BTL4_S510,NA,5,4,NA,insitu,2202,no,regular metagenomics prep? Further inquiries for Miguel/Emilie
+Orca-CTD5BTL4_S510,NA,5,4,NA,insitu,2202,no,regular metagenomics prep? Further inquiries for Miguel/Emilie
+Orca-ExtBlank-E7_S501,NA,NA,NA,NA,extraction blank,NA,no,"no sample added to lysis buffer, but otherwise went through full extraction protocol"
+Orca-ExtBlank-F7_S502,NA,NA,NA,NA,extraction blank,NA,no,"no sample added to lysis buffer, but otherwise went through full extraction protocol"
+Orca-ExtBlank-G7_S503,NA,NA,NA,NA,extraction blank,NA,no,"no sample added to lysis buffer, but otherwise went through full extraction protocol"
+Orca-ExtBlank-H7_S504,NA,NA,NA,NA,extraction blank,NA,no,"no sample added to lysis buffer, but otherwise went through full extraction protocol"
+Orca-ZymoMockA-A7_S497,NA,NA,NA,NA,mock community,NA,no,"Extraction positive controls: defined community serial dilution, no amplification. 52,500,000 cells added per well"
+Orca-ZymoMockB-B7_S498,NA,NA,NA,NA,mock community,NA,no,"Extraction positive controls: defined community serial dilution, no amplification. 5,250,000 cells added per well"
+Orca-ZymoMockC-C7_S499,NA,NA,NA,NA,mock community,NA,no,"Extraction positive controls: defined community serial dilution, no amplification. 525,000 cells added per well"
+Orca-ZymoMockD-D7_S500,NA,NA,NA,NA,mock community,NA,no,"Extraction positive controls: defined community serial dilution, no amplification. 52,500 cells added per well"
+Orca31_S507,Orca_31,10,6,A2,Inactive,2224,yes,MDArepliG amplified before sequencing
+Orca31_S507,Orca_31,10,6,A2,Inactive,2224,yes,MDArepliG amplified before sequencing
+Orca32_S508,Orca_32,10,6,B2,Other,2224,yes,MDArepliG amplified before sequencing
+Orca32_S508,Orca_32,10,6,B2,Other,2224,yes,MDArepliG amplified before sequencing
+Orca33_S509,Orca_33,10,6,C2,Active,2224,yes,MDArepliG amplified before sequencing
+Orca33_S509,Orca_33,10,6,C2,Active,2224,yes,MDArepliG amplified before sequencing
+B_ORCA13_C5B42202_S120,Orca_13,5,4,NA,Inactive,2202,yes,MDArepliG amplified before sequencing
+B_ORCA15_C5B42202_S121,Orca_15,5,4,NA,Active,2202,yes,MDArepliG amplified before sequencing

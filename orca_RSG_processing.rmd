@@ -1,0 +1,391 @@
+---
+title: "Orca North Basin RSG Processing"
+output: html_document
+date: "2024-08-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(tidyr)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(data.table)
+library(stringr)
+```
+
+```{r}
+rootdir = "/scratch/users/rsalcedo/orca_RSG/"
+oakdir1 = "/oak/stanford/groups/dekas/sequences/OAST/orca_basin2023/northbasin_RSG_2024/raw_reads/"
+oakdir2 = "/oak/stanford/groups/dekas/sequences/OAST/orca_basin2023/northbasin_RSG_2023/"
+
+seqdir = paste0(rootdir, "reads/")
+```
+
+copy and rename
+```{r}
+dir.create(paste0(seqdir, "/raw_reads/"))
+```
+
+```{r}
+# List all files in oakdir
+files <- list.files(oakdir1, full.names = TRUE)
+
+# Process each file
+for (file in files) {
+  # Extract the file name
+  file_name <- basename(file)
+  
+  # Create the new file name by removing "L008_" and "_001"
+  new_file_name <- str_replace_all(file_name, c("L008_" = "", "_001" = ""))
+  
+  # Define the new file path
+  new_file_path <- file.path(paste0(seqdir, "/raw_reads/"), new_file_name)
+  
+  # Copy the file to the new directory with the new name
+  file.copy(file, new_file_path)
+}
+```
+
+```{r}
+# List all files in oakdir
+files <- list.files(oakdir2, full.names = TRUE)
+
+# Process each file
+for (file in files) {
+  # Extract the file name
+  file_name <- basename(file)
+  
+  # Create the new file name by removing "L006_" and "_001"
+  new_file_name <- str_replace_all(file_name, c("L006_" = "", "_001" = "", "B_" = ""))
+  
+  # Define the new file path
+  new_file_path <- file.path(paste0(seqdir, "/raw_reads/"), new_file_name)
+  
+  # Copy the file to the new directory with the new name
+  file.copy(file, new_file_path)
+}
+```
+
+```{r}
+sample_list = unique(gsub("_R\\d.fastq.gz", "", list.files(path = paste0(seqdir, "raw_reads/"))))
+```
+
+generate df with sample name and associated metadata
+```{r}
+metadata = read_csv(paste0(rootdir, "metadata.csv"))
+metadata$...10 = NULL
+
+in_situ_samples = c("Orca-CTD10BTL6_S511", "Orca-CTD5BTL4_S510")
+RSG_sorts = c("Orca_NoAmp_15_S506", "Orca33_S509", "ORCA_15_C5B42202_S121", "Orca_NoAmp_13_S505", "Orca31_S507", "ORCA_13_C5B42202_S120", "Orca32_S508")
+```
+fastQC and bbduk
+```{r}
+system("ml fastqc/0.11.8")
+system("ml biology")
+
+sink(paste0(rootdir, "sh_scripts/raw_fastQC.sh"))
+for (i in sample_list) {
+  cat("sbatch -J fastQC_", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'fastqc ", seqdir, "raw_reads/", i, "_R1.fastq.gz ", seqdir, "raw_reads/", i, "_R2.fastq.gz -o raw_fastqc/'", "\n", sep = "")
+  }
+sink()
+
+file.show(paste(rootdir, "sh_scripts/raw_fastQC.sh", sep = ""))
+```
+
+```{r}
+dir.create(paste0(seqdir, "/trimmed_reads/"))
+```
+
+```{r}
+system("ml java/1.8.0_131")
+
+sink(paste0(rootdir, "sh_scripts/bbduk_commands.sh"))
+for (i in sample_list) {
+  cat("sbatch -J bbduk_", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'bbduk.sh in1=", seqdir, "raw_reads/", i, "_R1.fastq.gz in2=", seqdir, "raw_reads/", i, "_R2.fastq.gz out1=", seqdir, "trimmed_reads/", i, "_R1_trimmed.fastq out2=", seqdir, "trimmed_reads/", i, "_R2_trimmed.fastq ref=adapters ktrim=r k=23 mink=11 hdist=1 tbo qtrim=r trimq=25 minlen=30'", "\n", sep = "")
+  }
+sink()
+
+file.show(paste(rootdir, "sh_scripts/bbduk_commands.sh", sep = ""))
+```
+
+```{r}
+sink(paste0(rootdir, "sh_scripts/trimmed_fastQC.sh"))
+for (i in sample_list) {
+  cat("sbatch -J fastQC_", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'fastqc ", seqdir, "trimmed_reads/", i, "_R1_trimmed.fastq ", seqdir, "trimmed_reads/", i, "_R2_trimmed.fastq -o trimmed_fastqc/'", "\n", sep = "")
+  }
+sink()
+
+file.show(paste(rootdir, "sh_scripts/trimmed_fastQC.sh", sep = ""))
+```
+
+get total number of reads in each trimmed file
+```{r}
+# Define the directory containing your FASTQ files
+fastq_dir <- paste0(seqdir, "/trimmed_reads/")
+
+# Function to count the number of reads in a FASTQ file using wc -l
+count_reads <- function(file) {
+  n_lines <- as.numeric(system(paste("wc -l < ", shQuote(file)), intern = TRUE))
+  n_reads <- n_lines / 4  # Each read in a FASTQ file consists of 4 lines
+  return(n_reads)
+}
+
+# List all FASTQ files in the directory
+fastq_files <- list.files(fastq_dir, pattern = "_trimmed.fastq$", full.names = TRUE)
+
+# Initialize vectors to store results
+sample_names <- character(length(fastq_files))
+file_names <- character(length(fastq_files))
+n_reads <- numeric(length(fastq_files))
+
+# Loop through each file, count the reads, and store the results in vectors
+for (i in seq_along(fastq_files)) {
+  file <- fastq_files[i]
+  file_names[i] <- basename(file)
+  sample_names[i] <- gsub("_trimmed.fastq$", "", file_names[i])
+  n_reads[i] <- count_reads(file)
+}
+
+# Create the dataframe
+df <- data.frame(file_name = sample_names, file = file_names, n_reads = n_reads, stringsAsFactors = FALSE)
+
+# Display the resulting dataframe
+print(df)
+
+# Modify the dataframe
+read_df <- df %>%
+  mutate(
+    direction = ifelse(grepl("_R1", file_name), "R1", "R2"),     # Extract "R1" or "R2" into the "direction" column
+    file_name = gsub("_(R1|R2)$", "", file_name)                     # Remove "_R1" or "_R2" from the "sample" column
+  )
+
+# Display the modified dataframe
+print(read_df)
+
+```
+
+assemble
+```{r}
+sink(paste0(rootdir, "sh_scripts/megahit_assembly.sh"))
+for (i in sample_list) {
+  cat("sbatch -J megahit_", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'megahit -1 ", seqdir, "trimmed_reads/", i, "_R1_trimmed.fastq -2 ", seqdir, "trimmed_reads/", i, "_R2_trimmed.fastq -o ", rootdir, "megahit/", i, "/ --out-prefix ", i, " -t 20 --min-contig-len 1500 --presets meta-sensitive'", "\n", sep = "")
+}
+sink()
+file.show(paste0(rootdir, "sh_scripts/megahit_assembly.sh"))
+
+```
+
+copy all assemblies into one directory
+```{r}
+# Define the path to the main directory
+main_dir <- "/scratch/users/rsalcedo/orca_RSG/megahit"
+
+# Create the new "contigs" directory if it doesn't exist
+contigs_dir <- file.path(main_dir, "contigs")
+if (!dir.exists(contigs_dir)) {
+  dir.create(contigs_dir)
+}
+
+# List all subdirectories
+subdirs <- list.dirs(main_dir, recursive = FALSE, full.names = TRUE)
+
+# Loop through each subdirectory and copy the ".contigs.fa" file to the "contigs" directory
+for (subdir in subdirs) {
+  # Find the .contigs.fa file
+  contigs_file <- list.files(subdir, pattern = "\\.contigs\\.fa$", full.names = TRUE)
+  
+  # If the file exists, copy it to the "contigs" directory
+  if (length(contigs_file) == 1) {
+    file.copy(contigs_file, contigs_dir)
+  }
+}
+```
+
+check assembly
+```{r}
+sink(paste0(rootdir, "sh_scripts/bbtool_stats.sh"))
+for (i in sample_list) {
+  cat("sbatch -J stats_", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'stats.sh in=", rootdir, "megahit/contigs/", i, ".contigs.fa out=", rootdir, "megahit/assembly_stats/", i, ".stats.tsv format=3'", "\n", sep = "")
+}
+sink()
+file.show(paste0(rootdir, "sh_scripts/bbtool_stats.sh"))
+```
+
+parse assembly stats into one file
+```{r}
+# Set the path to your directory containing the TSV files
+directory_path <- "/scratch/users/rsalcedo/orca_RSG/megahit/assembly_stats/"
+
+# List all the TSV files in the directory
+file_list <- list.files(directory_path, pattern = "\\.tsv$", full.names = TRUE)
+
+# Function to read a TSV file and add file name as a column
+read_tsv_file <- function(file) {
+  df <- read_tsv(file)
+  df$file_name <- sub("\\.stats\\.tsv$", "", basename(file))  # Remove ".tsv" extension
+  df <- df %>% select(file_name, everything())       # Make file_name the first column
+  return(df)
+}
+
+# Read and bind all files
+stats_df <- bind_rows(lapply(file_list, read_tsv_file))
+
+# View the first few rows of the summary dataframe
+head(stats_df)
+
+write.csv(stats_df, paste0(rootdir, "output_csvs/assembly_stats_summary.csv"), row.names = FALSE)
+
+```
+
+make supplementary sequence info table 
+```{r}
+summary_df = merge(metadata, stats_df, by = "file_name", all.x = TRUE)
+summary_df = merge(summary_df, read_df, by = "file_name")
+
+summary_df = select(summary_df, c("file_name", "CTD", "bottle", "tube", "sample_type", "depth_m", "amplified", "n_reads", "n_scaffolds", "n_contigs", "scaf_N50", "ctg_N50", "notes"))
+summary_df <- summary_df %>% distinct()
+
+write.csv(summary_df, paste0(rootdir, "output_csvs/metadata_seqstats.csv"), row.names = FALSE)
+
+#only include in situ and RSG sorts
+keep = c(in_situ_samples, RSG_sorts)
+
+sequence_tableS1 <- summary_df %>%
+  filter(file_name %in% keep) %>%
+  filter(n_scaffolds != 0)
+
+sequence_tableS1 = select(sequence_tableS1, c("file_name", "CTD", "bottle", "sample_type", "depth_m", "amplified", "n_reads", "n_contigs", "ctg_N50"))
+
+#add in sample collection info
+sample_collection <- data.frame(
+  file_name = c(
+    "Orca-CTD10BTL6_S511", 
+    "Orca-CTD5BTL4_S510", 
+    "Orca31_S507", 
+    "Orca32_S508", 
+    "Orca33_S509", 
+    "B_ORCA13_C5B42202_S120", 
+    "B_ORCA15_C5B42202_S121"
+  ),
+  lat_N = c(
+    27.00280825, 
+    27.00218216, 
+    27.00280825, 
+    27.00280825, 
+    27.00280825, 
+    27.00218216, 
+    27.00218216
+  ),
+  long_W = c(
+    -91.15115819, 
+    -91.15088063, 
+    -91.15115819, 
+    -91.15115819, 
+    -91.15115819, 
+    -91.15088063, 
+    -91.15088063
+  ),
+  date_collected = c(
+    "7/1/2023",
+    "6/28/2023",
+    "7/1/2023",
+    "7/1/2023",
+    "7/1/2023",
+    "6/28/2023",
+    "6/28/2023"
+  )
+)
+
+sequence_tableS1 = merge(sequence_tableS1, sample_collection, by = "file_name", all.x = TRUE)
+
+write.csv(sequence_tableS1, paste0(rootdir, "output_csvs/sequence_tableS1.csv"), row.names = FALSE)
+```
+
+annotate whole assembly
+prodigal
+```{r}
+sink(paste(rootdir, "sh_scripts/wholeMG_prodigal.sh", sep = ""))
+for (i in in_situ_samples) {
+  cat("sbatch -J ", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'prodigal -i ", rootdir, "megahit/contigs/", i, ".contigs.fa -d ", rootdir, "assembly_analysis/wholeMG_prodigal/fna/", i, "_prodigalORFs.fna -a ", rootdir, "assembly_analysis/wholeMG_prodigal/faa/", i, "_prodigalORFs.faa -o ", rootdir, "assembly_analysis/wholeMG_prodigal/log/", i, "_prodigal.log'\n", sep = "")
+  }
+sink()
+
+file.show(paste(rootdir, "sh_scripts/wholeMG_prodigal.sh", sep = ""))
+
+dir.create(paste0(rootdir, "/RSGsorts_prodigal/"))
+dir.create(paste0(rootdir, "/RSGsorts_prodigal/faa/"))
+dir.create(paste0(rootdir, "/RSGsorts_prodigal/fna/"))
+dir.create(paste0(rootdir, "/RSGsorts_prodigal/log/"))
+
+sink(paste(rootdir, "sh_scripts/RSGsorts_prodigal.sh", sep = ""))
+for (i in RSG_sorts) {
+  cat("sbatch -J ", i, " -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap 'prodigal -i ", rootdir, "megahit/contigs/", i, ".contigs.fa -d ", rootdir, "assembly_analysis/RSGsorts_prodigal/fna/", i, "_prodigalORFs.fna -a ", rootdir, "assembly_analysis/RSGsorts_prodigal/faa/", i, "_prodigalORFs.faa -o ", rootdir, "assembly_analysis/RSGsorts_prodigal/log/", i, "_prodigal.log'\n", sep = "")
+  }
+sink()
+
+file.show(paste(rootdir, "sh_scripts/RSGsorts_prodigal.sh", sep = ""))
+```
+
+kofamscan commands
+```{r}
+kofamscan_path = "/home/groups/dekas/rebecca/kofamscan/kofam_scan-1.3.0/exec_annotation"
+ko_list = "/home/groups/dekas/rebecca/kofamscan/ko_list"
+ko_profiles = "/home/groups/dekas/rebecca/kofamscan/profiles"
+
+#remember to ml ruby
+
+sink(paste0(rootdir, "kofamscan.sh"))
+for (i in in_situ_samples) {
+  cat("sbatch -J ", i, "_kofam -c 20 --mem-per-cpu 8G -p serc -t 160:00:00 --wrap '", kofamscan_path, " -o ", rootdir, "wholeMG_kofamscan/txt/", i, "_KEGGIDs.txt -k ", ko_list, " -p ", ko_profiles, " --cpu 20 --tmp-dir ", rootdir, i, "_tmpdir/ ", rootdir, "wholeMG_prodigal/faa/", i, "_prodigalORFs.faa'\n", sep = "")
+  }
+sink()
+
+file.show(paste0(rootdir, "kofamscan.sh"))
+system("chmod +x /scratch/users/rsalcedo/orca_RSG/kofamscan.sh")
+
+#jobID's 51690977 and 51690978
+```
+
+kofamparse commands
+```{r}
+#remember to activate base_metagenomics conda environment
+
+kofamparse_path = "/home/groups/dekas/software/kofamparse/kofamparse"
+
+sink(paste0(rootdir, "kofamparse.sh"))
+for (i in in_situ_samples) {
+  cat("sbatch -J ", i, "_parse -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap '", kofamparse_path, " ", rootdir, "wholeMG_kofamscan/txt/", i, "_KEGGIDs.txt ", rootdir, "wholeMG_kofamscan/csv/", i, "_KEGGIDs.csv'\n", sep = "")
+  }
+sink()
+
+file.show(paste0(rootdir, "kofamparse.sh"))
+system("chmod +x /scratch/users/rsalcedo/orca_RSG/kofamparse.sh")
+
+```
+
+kofamscan thresholding
+```{r message=FALSE, warning=FALSE}
+
+for(i in in_situ_samples) {                                           
+  kegg = read_csv(paste(rootdir, "wholeMG_kofamscan/csv/", i, "_KEGGIDs.csv", sep = ""), col_names = TRUE)
+  kegg$score = as.integer(kegg$score)
+  kegg$threshold = as.integer(kegg$threshold)
+  kegg = rename(kegg, gene = "Gene name") 
+  kegg = rename(kegg, KO = "KO number") 
+  kegg = rename(kegg, evalue = "e-value") 
+  kegg_besthit = kegg %>% 
+    group_by(gene) %>% 
+    slice_max(score)
+  kegg_besthit = subset(kegg_besthit, kegg_besthit$evalue < 1e-6)
+  kegg_besthit = subset(kegg_besthit, kegg_besthit$score >= threshold)
+  write.csv(kegg_besthit, paste(rootdir, "wholeMG_kofamscan/csv_processed/", i, "_KEGGIDs_processed.csv", sep = ""))
+}
+
+```
+
+
+

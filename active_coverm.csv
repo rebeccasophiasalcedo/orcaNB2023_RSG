@@ -1,0 +1,7 @@
+"","file_name","sample_type","depth_m","amplified","genome","classification","completeness","contamination","Read.Count","genome_cov","covered_fraction","Length","sample_cov","relative"
+"1","Orca32_S508","Other",2224,"yes","Orca-CTD10BTL6_S511_19","d__Bacteria;p__Atribacterota;c__JS1;o__SB-45;f__34-128;g__34-128;s__",57.22,15.64,304105,34.324963,0.58262736,1088883,172.677423,0.198780838882452
+"2","ORCA_15_C5B42202_S121","Active",2202,"yes","Orca-CTD10BTL6_S511_8","d__Bacteria;p__Marinisomatota;c__Marinisomatia;o__Marinisomatales;f__UBA2128;g__;s__",85.71,1.1,13296331,852.7305,0.8730974,2016145,1600.42724,0.53281428776481
+"3","Orca32_S508","Other",2224,"yes","Orca-CTD10BTL6_S511_8","d__Bacteria;p__Marinisomatota;c__Marinisomatia;o__Marinisomatales;f__UBA2128;g__;s__",85.71,1.1,2206110,138.35246,0.97397506,2016145,172.677423,0.801219161117548
+"4","Orca33_S509","Active",2224,"yes","Orca-CTD10BTL6_S511_8","d__Bacteria;p__Marinisomatota;c__Marinisomatia;o__Marinisomatales;f__UBA2128;g__;s__",85.71,1.1,5203862,336.09973,0.99289536,2016145,336.09973,1
+"5","ORCA_15_C5B42202_S121","Active",2202,"yes","Orca-CTD5BTL4_S510_1","d__Bacteria;p__Planctomycetota;c__Brocadiae;o__Brocadiales;f__Scalinduaceae;g__Scalindua;s__",70.82,24.48,9287379,373.35638,0.5489381,3198069,1600.42724,0.233285444454195
+"6","ORCA_15_C5B42202_S121","Active",2202,"yes","Orca-CTD5BTL4_S510_5","d__Archaea;p__Thermoproteota;c__Nitrososphaeria;o__Nitrososphaerales;f__Nitrosopumilaceae;g__Nitrosopumilus;s__",86.18,3.24,3631291,374.34036,0.51495004,1270902,1600.42724,0.233900267780996

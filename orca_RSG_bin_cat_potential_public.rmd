@@ -1,0 +1,247 @@
+---
+title: "Orca Basin Bins Metabolic Potential"
+output: html_document
+date: "2024-09-18"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(data.table)
+library(tidyr)
+library(dplyr)
+library(readr)
+library(purrr)
+library(ggplot2)
+library(patchwork)
+library(ggthemes)
+library(RColorBrewer)
+library(ggh4x)
+library(gridExtra)
+
+```
+
+```{r}
+rootdir = "/scratch/users/rsalcedo/orca_RSG/"
+```
+
+```{r message=FALSE, warning=FALSE}
+DRAM_pathways = read_csv(paste(rootdir, "bin_analysis/metabolic_potential/DRAM_v6.csv", sep = ""), col_names = TRUE)
+
+genome_info = read.csv(paste(rootdir, "genome_info_summary.csv", sep = ""))
+```
+
+```{r add HCF potential to dram}
+	# Create the dataframe
+HCF_genes <- data.frame(
+  gene_id = c("K01958","K01959","K01960","K01595","K01968","K01969","K10854","K10855","K10856","K01587","K11808","K01935","K19562"),
+  gene_description = c("pyruvate carboxylase", 
+        "pyruvate carboxylase subunit A", 
+        "pyruvate carboxylase subunit B", 
+        "phosphoenolpyruvate carboxylase", 
+        "3-methylcrotonyl-CoA carboxylase alpha subunit", 
+        "3-methylcrotonyl-CoA carboxylase beta subunit", 
+        "acetone carboxylase, alpha subunit", 
+        "acetone carboxylase, beta subunit", 
+        "acetone carboxylase, gamma subunit", 
+        "phosphoribosylaminoimidazole carboxylase / phosphoribosylaminoimidazole-succinocarboxamide synthase", 
+        "phosphoribosylaminoimidazole carboxylase", 
+        "dethiobiotin synthetase", 
+        "bifunctional dethiobiotin synthetase / adenosylmethionine---8-amino-7-oxononanoate aminotransferase"),
+  module = c("anaplerosis", "anaplerosis", "anaplerosis", "anaplerosis", "Leucine and Valine degradation", "Leucine and Valine degradation", "acetone degradation", "acetone degradation", "acetone degradation", "purine synthesis", "purine synthesis", "biotin synthesis", "biotin synthesis"),
+  header = c("Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation", "Heterotrophic Carbon Fixation"),
+  gene_type = c("marker", "marker", "marker", "marker", "marker", "marker", "marker", "marker", "marker", "marker", "marker", "marker", "marker"),
+  metabolism = c("reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction", "reduction"),
+  stringsAsFactors = FALSE
+)
+
+DRAM_pathways = rbind(HCF_genes, DRAM_pathways)
+
+```
+
+```{r ROS detoxification}
+ROS_genes <- data.frame(
+  gene_id = c("K09162", "K16627", "K04564", "K04565", "K03781", "K27148"),
+  gene_description = c("cld; chlorite dismutase [EC:1.13.11.49]", "SOD3; superoxide dismutase, Cu-Zn family [EC:1.15.1.1]", "SOD2; superoxide dismutase, Fe-Mn family [EC:1.15.1.1]", "SOD1; superoxide dismutase, Cu-Zn family [EC:1.15.1.1]", "katE, CAT, catB, srpA; catalase [EC:1.11.1.6]", "nod; nitric oxide dismutase"),
+  module = c("chlorite dismutation", "hydrogen peroxide dismutation", "hydrogen peroxide dismutation", "hydrogen peroxide dismutation", "hydrogen peroxide dismutation", "NO dismutation"),
+  header = c("ROS detoxification", "ROS detoxification", "ROS detoxification", "ROS detoxification", "ROS detoxification", "ROS detoxification"),
+  gene_type = c("marker", "marker", "marker", "marker", "marker", "marker"),
+  metabolism = c("detoxification", "detoxification", "detoxification", "detoxification", "detoxification", "detoxification"),
+  stringsAsFactors = FALSE
+)
+
+DRAM_pathways = rbind(ROS_genes, DRAM_pathways)
+```
+
+```{r}
+DRAM_KOs = as.data.frame(DRAM_pathways$gene_id)
+colnames(DRAM_KOs) = "gene_id"
+```
+
+```{r}
+filenames = list.files(path = "/scratch/users/rsalcedo/orca_RSG/bin_analysis/kofamscan/csv_processed/")
+setwd("/scratch/users/rsalcedo/orca_RSG/bin_analysis/kofamscan/csv_processed/")
+
+for (f in filenames) {
+  # Read CSV and convert to data.table
+  genome = fread(f)  # fread is more efficient for reading CSVs into a data.table
+  
+  # Ensure "KO" column exists
+  if (!"KO" %in% colnames(genome)) {
+    stop(paste("Column 'KO' not found in file:", f))
+  }
+  
+  # Select the KO column and add the 'present' column
+  genome = genome[, .(gene_id = KO, present = 1)]
+  
+  # Rename the "present" column to the filename without "_processed.csv"
+  new_col_name = sub("\\_processed\\.csv$", "", f)
+  setnames(genome, "present", new_col_name)
+  
+  # Remove duplicates based on "gene_id"
+  genome = genome[!duplicated(gene_id)]
+  
+  # Join with DRAM_KOs
+  genome = merge(DRAM_KOs, genome, by = "gene_id", all.x = TRUE)
+  
+  # Assign to a new variable
+  assign(paste0("genome_", new_col_name), genome)
+}
+```
+
+
+```{r}
+#get all data frames in list
+df_list = mget(ls(pattern = "genome_O"))
+#clean up the names so its just the bin ID
+names(df_list) <- sub("\\_processed.csv$", "", names(df_list))
+#merge all the dataframes together
+a = do.call("cbind", df_list)
+
+colnames(a)[1] = "KO"
+
+#clean up df by renaming some files and dropping duplicate columns
+colnames(a)[1] = "KO"
+ab <- a %>% select(-contains(".gene_id"))
+
+#reorder the KO columns so theyre in the same order for when you do cbind since that doesnt look for matches. had to do it this way since merge wasnt working (gave too many rows)
+DRAM_pathways = DRAM_pathways[order(DRAM_pathways$gene_id,decreasing=TRUE),]
+ab = ab[order(ab$KO,decreasing=TRUE),]
+ab = cbind(ab, DRAM_pathways)
+
+#dropping duplicate rows, renaming column headers, and replacing NAs with zeros
+ab <- ab %>% select(-contains("gene_id"))
+ab[is.na(ab)] <- 0
+colnames(ab) = gsub("\\..*", "", colnames(ab))
+```
+
+```{r}
+ab_long = ab %>% pivot_longer(cols = starts_with("genome_"), names_to = "genome", values_to = "present")
+ab_long$genome = sub("genome_", "", ab_long$genome)
+
+ab_long = left_join(ab_long, genome_info, by = "genome")
+ab_drep = filter(ab_long, ab_long$drep_rep == "TRUE")
+
+#drop K00441 since its not energy producing
+ab_drep = ab_drep[-(which(ab_drep$KO == "K00441")),]
+
+#check MAG numbers
+length(unique(ab_long$genome))
+length(unique(ab_drep$genome))
+```
+
+cleaning up df for plotting
+```{r}
+ab_drep <- ab_drep %>%
+  mutate(
+    phylum = sub(".*p__", "", sub("\\;c.*", "", classification)),
+    class = sub(".*c__", "", sub("\\;o.*", "", classification)),
+    label = paste(phylum, class, sep = "\n")
+  )
+```
+
+```{r}
+coverm_info = read.csv(paste0(rootdir, "bin_analysis/coverm/coverm_info.csv"))
+active_MAGs_list <- coverm_info %>%
+  filter(amplified == "yes" & covered_fraction >= 0.5) %>%
+  pull(genome) %>%
+  unique()
+
+active_MAGs_list <- active_MAGs_list[active_MAGs_list != "Orca-CTD10BTL6_S511_19"]
+
+active_MAGs = ab_drep %>%
+  filter(genome %in% active_MAGs_list) %>% 
+  filter(gene_type == "marker" | metabolism == "transport") %>%
+  filter(present == 1)
+
+active_MAGs <- active_MAGs %>%
+  filter(
+    !( 
+      (KO %in% c("K10944", "K10945", "K10946") & genome == "Orca-CTD5BTL4_S510_5" & header == "methane") |
+      (KO %in% c("K10944", "K10945", "K10946", "K10535") & genome == "Orca-CTD5BTL4_S510_5" & module == "Complete nitrification") |
+      (KO %in% c("K00368") & genome == "Orca-CTD5BTL4_S510_5" & module == "Denitrification") |
+      (KO %in% c("K00368") & genome == "Orca-CTD5BTL4_S510_5" & module == "Annamox") |
+      (KO %in% c("K00958") & genome == "Orca-CTD5BTL4_S510_5" & module == "Sulfite oxidation") |
+      (KO %in% c("K00194") & genome == "Orca-CTD5BTL4_S510_1" & module == "anaerobic CO oxidation")
+    )
+  )
+
+active_coverm = coverm_info %>%
+  filter(amplified == "yes" & covered_fraction >= 0.5)
+
+write.csv(active_coverm, paste0(rootdir, "/output_csvs/active_coverm.csv"))
+```
+
+```{r}
+active_MAGs$header <- gsub("ROS detoxification", "ROS", gsub("Heterotrophic Carbon Fixation", "HICF", gsub("abc transporter", "ABC Transporter", gsub("carbon fixation", "Autotrophy", active_MAGs$header))))
+
+active_MAGs$header
+```
+
+```{r}
+unique(active_MAGs$module)
+unique(active_MAGs$KO)
+```
+
+```{r}
+
+module_colors <- c("Wood-Ljungdahl pathway" = "#800000", "Dicarboxylate-hydroxybutylate cycle" = "#B84B4B", "Hydroxypropionate-hydroxybutylate cycle" = "#B84B4B", "Ammonia oxidation" = "springgreen2", "Complete nitrification" = "springgreen4", "Branched-chain amino acid degradation" = "royalblue4", "biotin synthesis" = "lightskyblue", "glycine cleavage system" = "lightsteelblue3", "hydrogen peroxide dismutation" = "gray", "Sulfite oxidation" = "palegreen")
+
+active_MAGs$header <- factor(active_MAGs$header, levels = c("ABC Transporter", "HICF", "Glycine", "Autotrophy", "Nitrogen", "Sulfur", "ROS"))
+
+# Custom KO list
+
+ko_mapping <- data.frame(
+  KO = c("K15023", "K15016", "K10946", "K10945", "K10944", "K10535", "K04564", "K02437", "K01999", "K01935", "K00826", "K00605", "K00394", "K00382", "K00283", "K00194"),
+  Name = c("acsE", "ECH/HAD", "amoC", "amoB", "amoA", "hao", "SOD2", "gcvH", "livK", "bioD", "ilvE", "gcvT", "aprA", "pdhD", "gcvPB", "acsD") # Names associated with KOs
+)
+
+data <- merge(active_MAGs, ko_mapping, by = "KO")
+
+ggplot(data, aes(x = Name, y = genome, fill = module, alpha = present)) +
+  geom_tile(colour = "white") +
+  facet_grid(label ~ header, scales = "free", space = "free", switch = "y") +
+  scale_alpha_identity(guide = "none") +
+  scale_fill_manual(values = module_colors) + 
+  ylab("Genomes") +
+  xlab("KO Number") +
+  theme_few() +
+  theme(
+    axis.ticks.x = element_blank(),
+    axis.text.y.left = element_blank(),
+    axis.title.y.left = element_text(size = 12),
+    axis.title.x = element_text(size = 12),
+    legend.position = "bottom",
+    legend.text = element_text(size = 10),
+    strip.text.y.left = element_text(angle = 0, size = 10),  # Move y-axis facet labels to the left
+    strip.text.x.top = element_text(angle = 0, size = 12)
+  ) + 
+  guides(shape = guide_legend(override.aes = list(size = 2)),
+         color = guide_legend(override.aes = list(size = 2)))
+```
+
+```{r}
+ggsave(paste(rootdir, "plots/genomics_figure_v3.pdf", sep = ""), width = 14, height = 7, units = "in")
+```

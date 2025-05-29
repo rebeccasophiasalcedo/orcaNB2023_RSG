@@ -1,0 +1,47 @@
+genome,primary_cluster,secondary_cluster,completeness,contamination,drep_rep,classification
+Orca-CTD10BTL6_S511_1,NA,NA,4.17,0,FALSE,Unclassified Bacteria
+Orca-CTD10BTL6_S511_10,NA,NA,26.33,0.86,FALSE,d__Bacteria;p__Actinobacteriota;c__Aquicultoria;o__SURF-47;f__;g__;s__
+Orca-CTD10BTL6_S511_11,NA,NA,36.21,0,FALSE,d__Bacteria;p__Chloroflexota;c__Anaerolineae;o__UBA1429;f__UBA1429;g__;s__
+Orca-CTD10BTL6_S511_12,NA,NA,45.35,2.73,FALSE,d__Bacteria;p__Chloroflexota;c__Anaerolineae;o__Anaerolineales;f__UBA11858;g__NIOZ-UU35;s__
+Orca-CTD10BTL6_S511_13,NA,NA,73.07,43.03,FALSE,d__Bacteria;p__Planctomycetota;c__Planctomycetia;o__Pirellulales;f__Thermoguttaceae;g__;s__
+Orca-CTD10BTL6_S511_14,NA,NA,3.45,0,FALSE,Unclassified Bacteria
+Orca-CTD10BTL6_S511_15,NA,NA,15.17,0,FALSE,d__Bacteria;p__Desulfobacterota;c__Desulfobacteria;o__Desulfobacterales;f__UBA2156;g__UBA2156;s__
+Orca-CTD10BTL6_S511_16,NA,NA,4.17,0,FALSE,Unclassified Bacteria
+Orca-CTD10BTL6_S511_17,3,3_0,98.93,0.73,TRUE,d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Ralstonia;s__Ralstonia pickettii
+Orca-CTD10BTL6_S511_18,NA,NA,0,0,FALSE,Unclassified
+Orca-CTD10BTL6_S511_19,9,9_0,57.22,15.64,TRUE,d__Bacteria;p__Atribacterota;c__JS1;o__SB-45;f__34-128;g__34-128;s__
+Orca-CTD10BTL6_S511_2,4,4_0,93.68,15.06,TRUE,d__Bacteria;p__Planctomycetota;c__Planctomycetia;o__Pirellulales;f__Thermoguttaceae;g__;s__
+Orca-CTD10BTL6_S511_20,NA,NA,12.5,4.17,FALSE,Unclassified Bacteria
+Orca-CTD10BTL6_S511_3,NA,NA,16.98,0,FALSE,d__Bacteria;p__Desulfobacterota;c__Desulfobacteria;o__Desulfobacterales;f__UBA2156;g__UBA2156;s__
+Orca-CTD10BTL6_S511_4,NA,NA,43.19,6.03,FALSE,d__Bacteria;p__Actinobacteriota;c__;o__;f__;g__;s__
+Orca-CTD10BTL6_S511_5,NA,NA,0,0,FALSE,Unclassified Bacteria
+Orca-CTD10BTL6_S511_6,10,10_0,61.54,1.2,TRUE,d__Bacteria;p__Fermentibacterota;c__Fermentibacteria;o__Fermentibacterales;f__Fermentibacteraceae;g__Aegiribacteria;s__
+Orca-CTD10BTL6_S511_7,NA,NA,39.75,3.55,FALSE,d__Bacteria;p__Desulfobacterota;c__DSM-4660;o__Desulfatiglandales;f__Desulfatiglandaceae;g__Desulfacyla;s__
+Orca-CTD10BTL6_S511_8,5,5_1,85.71,1.1,TRUE,d__Bacteria;p__Marinisomatota;c__Marinisomatia;o__Marinisomatales;f__UBA2128;g__;s__
+Orca-CTD10BTL6_S511_9,8,8_1,64.46,1.94,TRUE,d__Bacteria;p__Desulfobacterota;c__Desulfobacteria;o__Desulfobacterales;f__UBA2156;g__UBA2156;s__
+Orca-CTD5BTL4_S510_1,6,6_0,70.82,24.48,TRUE,d__Bacteria;p__Planctomycetota;c__Brocadiae;o__Brocadiales;f__Scalinduaceae;g__Scalindua;s__
+Orca-CTD5BTL4_S510_10,NA,NA,0,0,FALSE,Unclassified
+Orca-CTD5BTL4_S510_11,NA,NA,33.29,7.49,FALSE,d__Bacteria;p__Desulfobacterota;c__Desulfobacteria;o__Desulfobacterales;f__;g__;s__
+Orca-CTD5BTL4_S510_12,NA,NA,31.82,0,FALSE,d__Bacteria;p__Patescibacteria;c__ABY1;o__SG8-24;f__GWF2-40-263;g__UM-FILTER-50-9;s__
+Orca-CTD5BTL4_S510_13,7,7_0,63.06,5.17,TRUE,d__Bacteria;p__Patescibacteria;c__Paceibacteria;o__UBA9983_A;f__UBA2163;g__UBA2163;s__
+Orca-CTD5BTL4_S510_14,NA,NA,8.33,0,FALSE,Unclassified Bacteria
+Orca-CTD5BTL4_S510_15,11,11_0,85.89,3.76,TRUE,d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__GCF-002020875;f__GCF-002020875;g__Thiopontia;s__
+Orca-CTD5BTL4_S510_16,8,8_1,53.23,1.29,FALSE,d__Bacteria;p__Desulfobacterota;c__Desulfobacteria;o__Desulfobacterales;f__UBA2156;g__UBA2156;s__
+Orca-CTD5BTL4_S510_17,NA,NA,4.17,0,FALSE,Unclassified Bacteria
+Orca-CTD5BTL4_S510_18,NA,NA,3.45,0,FALSE,Unclassified Bacteria
+Orca-CTD5BTL4_S510_19,12,12_0,71.29,0.9,TRUE,d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Pseudomonadales;f__Alcanivoracaceae;g__Alcanivorax;s__Alcanivorax sp900107995
+Orca-CTD5BTL4_S510_2,NA,NA,40,1.29,FALSE,d__Bacteria;p__Desulfobacterota;c__Desulfobacteria;o__Desulfobacterales;f__UBA2156;g__UBA2156;s__
+Orca-CTD5BTL4_S510_20,NA,NA,98.28,77.48,FALSE,d__Bacteria;p__Actinobacteriota;c__;o__;f__;g__;s__
+Orca-CTD5BTL4_S510_21,NA,NA,28.16,2.15,FALSE,d__Bacteria;p__UBA10199;c__UBA10199;o__DTNB01;f__;g__;s__
+Orca-CTD5BTL4_S510_22,NA,NA,35.34,0,FALSE,d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Methylococcales;f__Methylomonadaceae;g__QPIN01;s__
+Orca-CTD5BTL4_S510_23,NA,NA,89.91,38.31,FALSE,d__Bacteria;p__Marinisomatota;c__Marinisomatia;o__Marinisomatales;f__TCS55;g__UBA2126;s__
+Orca-CTD5BTL4_S510_24,5,5_1,84.62,1.1,FALSE,d__Bacteria;p__Marinisomatota;c__Marinisomatia;o__Marinisomatales;f__UBA2128;g__;s__
+Orca-CTD5BTL4_S510_25,NA,NA,77.05,30.36,FALSE,d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__UBA11136;f__UBA11136;g__UBA11136;s__
+Orca-CTD5BTL4_S510_26,NA,NA,16.61,0,FALSE,d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhodospirillales;f__2-02-FULL-58-16;g__GCA-2686765;s__
+Orca-CTD5BTL4_S510_3,NA,NA,39.5,1.82,FALSE,d__Bacteria;p__Nitrospirota;c__Thermodesulfovibrionia;o__UBA6902;f__UBA6902;g__BMS3Abin09;s__
+Orca-CTD5BTL4_S510_4,1,1_0,96.15,5.56,TRUE,d__Bacteria;p__Actinobacteriota;c__Acidimicrobiia;o__Acidimicrobiales;f__MedAcidi-G1;g__S20-B6;s__
+Orca-CTD5BTL4_S510_5,13,13_0,86.18,3.24,TRUE,d__Archaea;p__Thermoproteota;c__Nitrososphaeria;o__Nitrososphaerales;f__Nitrosopumilaceae;g__Nitrosopumilus;s__
+Orca-CTD5BTL4_S510_6,2,2_0,88.03,5.98,TRUE,d__Bacteria;p__Actinobacteriota;c__Acidimicrobiia;o__Acidimicrobiales;f__MedAcidi-G1;g__UBA3125;s__
+Orca-CTD5BTL4_S510_7,NA,NA,79.02,57.61,FALSE,d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhodospirillales;f__2-02-FULL-58-16_A;g__;s__
+Orca-CTD5BTL4_S510_8,NA,NA,22.31,0,FALSE,d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Xanthomonadales;f__SZUA-36;g__SZUA-36;s__
+Orca-CTD5BTL4_S510_9,NA,NA,15.52,6.9,FALSE,Unclassified Bacteria

@@ -1,0 +1,414 @@
+﻿gene_id,gene_description,module,header,gene_type,metabolism
+K14080,[methyl-Co(III) methanol-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.246] [RN:R09098],Methanogenesis,methane,other,reduction
+K00204,4Fe-4S ferredoxin,Methanogenesis,methane,other,reduction
+K00205,4Fe-4S ferredoxin,Methanogenesis,methane,other,reduction
+K11260,4Fe-4S ferredoxin,Methanogenesis,methane,other,reduction
+K13942,"5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2] [RN:R04455]",Methanogenesis,methane,other,reduction
+K00925,acetate kinase [EC:2.7.2.1] [RN:R00315],Methanogenesis,methane,other,reduction
+K00193,acetyl-CoA decarbonylase/synthase complex [EC:2.3.1.-] [RN:R09096],Methanogenesis,methane,other,reduction
+K00194,acetyl-CoA decarbonylase/synthase complex [EC:2.3.1.-] [RN:R09096],Methanogenesis,methane,other,reduction
+K00197,acetyl-CoA decarbonylase/synthase complex [EC:2.3.1.-] [RN:R09096],Methanogenesis,methane,other,reduction
+K01895,acetyl-CoA synthetase [EC:6.2.1.1] [RN:R00235],Methanogenesis,methane,other,reduction
+K00320,"coenzyme F420-dependent N5,N10-methenyltetrahydromethanopterin reductase [EC:1.5.99.11] [RN:R04464]",Methanogenesis,methane,other,reduction
+K14126,F420-non-reducing hydrogenase [EC:1.8.98.5] [RN:R11943],Methanogenesis,methane,other,reduction
+K14128,F420-non-reducing hydrogenase [EC:1.8.98.5] [RN:R11943],Methanogenesis,methane,other,reduction
+K14127,F420-non-reducing hydrogenase iron-sulfur subunit [EC:1.8.98.5 1.8.98.6] [RN:R11943 R11944],Methanogenesis,methane,other,reduction
+K00125,formate dehydrogenase (coenzyme F420) [EC:1.8.98.6] [RN:R11944],Methanogenesis,methane,other,reduction
+K22516,formate dehydrogenase (coenzyme F420) [EC:1.8.98.6] [RN:R11944],Methanogenesis,methane,other,reduction
+K00200,formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015],Methanogenesis,methane,other,reduction
+K00201,formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015],Methanogenesis,methane,other,reduction
+K00202,formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015],Methanogenesis,methane,other,reduction
+K00203,formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015],Methanogenesis,methane,other,reduction
+K11261,formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015],Methanogenesis,methane,other,reduction
+K00672,formylmethanofuran--tetrahydromethanopterin N-formyltransferase [EC:2.3.1.101] [RN:R03390],Methanogenesis,methane,other,reduction
+K08264,heterodisulfide reductase [EC:1.8.98.1] [RN:R04540],Methanogenesis,methane,other,reduction
+K08265,heterodisulfide reductase [EC:1.8.98.1] [RN:R04540],Methanogenesis,methane,other,reduction
+K22480,heterodisulfide reductase 1 [EC:1.8.7.3] [RN:R11931],Methanogenesis,methane,other,reduction
+K22481,heterodisulfide reductase 1 [EC:1.8.7.3] [RN:R11931],Methanogenesis,methane,other,reduction
+K22482,heterodisulfide reductase 1 [EC:1.8.7.3] [RN:R11931],Methanogenesis,methane,other,reduction
+K03388,heterodisulfide reductase 2 [EC:1.8.7.3 1.8.98.4 1.8.98.5 1.8.98.6] [RN:R11928 R11931 R11943 R11944],Methanogenesis,methane,other,reduction
+K03389,heterodisulfide reductase 2 [EC:1.8.7.3 1.8.98.4 1.8.98.5 1.8.98.6] [RN:R11928 R11931 R11943 R11944],Methanogenesis,methane,other,reduction
+K03390,heterodisulfide reductase 2 [EC:1.8.7.3 1.8.98.4 1.8.98.5 1.8.98.6] [RN:R11928 R11931 R11943 R11944],Methanogenesis,methane,other,reduction
+K14081,methanol corrinoid protein [RN:R09098],Methanogenesis,methane,other,reduction
+K04480,methanol---5-hydroxybenzimidazolylcobamide Co-methyltransferase [EC:2.1.1.90] [RN:R09098],Methanogenesis,methane,other,reduction
+K01499,methenyltetrahydromethanopterin cyclohydrolase [EC:3.5.4.27] [RN:R03464],Methanogenesis,methane,other,reduction
+K00399,"mcrA, methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541]",Methanogenesis,methane,marker,reduction
+K00401,methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541],Methanogenesis,methane,marker,reduction
+K00402,methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541],Methanogenesis,methane,marker,reduction
+K00399,methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541],Methanogenesis,methane,other,reduction
+K00319,methylenetetrahydromethanopterin dehydrogenase [EC:1.5.99.9] [RN:R04456],Methanogenesis,methane,other,reduction
+K14082,mtbA; [methyl-Co(III) methylamine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.247] [RN:R09998],Methanogenesis,methane,other,reduction
+K16178,mtbB; dimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.249] [RN:R09999],Methanogenesis,methane,other,reduction
+K16179,mtbC; dimethylamine corrinoid protein [RN:R09999],Methanogenesis,methane,other,reduction
+K16176,mtmB; methylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.248] [RN:R09998],Methanogenesis,methane,other,reduction
+K16177,mtmC; monomethylamine corrinoid protein [RN:R09998],Methanogenesis,methane,other,reduction
+K16954,mtsA; methylthiol:coenzyme M methyltransferase [EC:2.1.1.251],Methanogenesis,methane,other,reduction
+K14083,mttB; trimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.250] [RN:R09124],Methanogenesis,methane,other,reduction
+K14084,mttC; trimethylamine corrinoid protein [RN:R09124],Methanogenesis,methane,other,reduction
+K00625,phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230],Methanogenesis,methane,other,reduction
+K13788,phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230],Methanogenesis,methane,other,reduction
+K00577,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00578,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00579,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00580,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00581,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00582,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00583,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K00584,tetrahydromethanopterin S-methyltransferase [EC:2.1.1.86] [RN:R04347],Methanogenesis,methane,other,reduction
+K03520,carbon-monoxide dehydrogenase large subunit,aerobic CO oxidation,CO,marker,oxidation
+K03519,carbon-monoxide dehydrogenase medium subunit,aerobic CO oxidation,CO,marker,oxidation
+K03518,carbon-monoxide dehydrogenase small subunit,aerobic CO oxidation,CO,marker,oxidation
+K00196,carbon-monoxide dehydrogenase iron sulfur subunit,anaerobic CO oxidation,CO,marker,oxidation
+K00192,"cdhA; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit alpha [EC:1.2.7.4] [RN:R07157]",anaerobic CO oxidation,CO,marker,oxidation
+K00195,"cdhB; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit epsilon [RN:R07157]",anaerobic CO oxidation,CO,marker,oxidation
+K00193,"cdhC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit beta [EC:2.3.1.169] [RN:R09096 R10219]",anaerobic CO oxidation,CO,marker,oxidation
+K00194,"cdhD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245] [RN:R09096 R10219]",anaerobic CO oxidation,CO,marker,oxidation
+K00197,"cdhE; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245] [RN:R09096 R10219]",anaerobic CO oxidation,CO,marker,oxidation
+K00281,glycine cleavage system [RN:R01221],glycine cleavage system ,Glycine,marker,oxidation
+K00283,glycine cleavage system [RN:R01221],glycine cleavage system ,Glycine,marker,oxidation
+K00382,glycine cleavage system [RN:R01221],glycine cleavage system ,Glycine,marker,oxidation
+K00605,glycine cleavage system [RN:R01221],glycine cleavage system ,Glycine,marker,oxidation
+K02437,glycine cleavage system [RN:R01221],glycine cleavage system ,Glycine,marker,oxidation
+K18005,[NiFe] hydrogenase diaphorase moiety large subunit [EC:1.12.1.2],hydrogenase,Hydrogen,other,oxidation
+K18006,[NiFe] hydrogenase diaphorase moiety small subunit [EC:1.12.1.2],hydrogenase,Hydrogen,other,oxidation
+K00437,[NiFe] hydrogenase large subunit [EC:1.12.2.1],hydrogenase,Hydrogen,other,oxidation
+K18008,[NiFe] hydrogenase small subunit [EC:1.12.2.1],hydrogenase,Hydrogen,other,oxidation
+K13942,"5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]",hydrogenase,Hydrogen,other,oxidation
+K05586,bidirectional [NiFe] hydrogenase diaphorase subunit [EC:7.1.1.2],hydrogenase,Hydrogen,other,oxidation
+K05587,bidirectional [NiFe] hydrogenase diaphorase subunit [EC:7.1.1.2],hydrogenase,Hydrogen,other,oxidation
+K05588,bidirectional [NiFe] hydrogenase diaphorase subunit [EC:7.1.1.2],hydrogenase,Hydrogen,other,oxidation
+K00440,coenzyme F420 hydrogenase subunit alpha [EC:1.12.98.1],hydrogenase,Hydrogen,other,oxidation
+K00441,coenzyme F420 hydrogenase subunit beta [EC:1.12.98.1],hydrogenase,Hydrogen,other,oxidation
+K00442,coenzyme F420 hydrogenase subunit delta,hydrogenase,Hydrogen,other,oxidation
+K00443,coenzyme F420 hydrogenase subunit gamma [EC:1.12.98.1],hydrogenase,Hydrogen,other,oxidation
+K14086,ech hydrogenase subunit A,hydrogenase,Hydrogen,other,oxidation
+K14087,ech hydrogenase subunit B,hydrogenase,Hydrogen,other,oxidation
+K14088,ech hydrogenase subunit C,hydrogenase,Hydrogen,other,oxidation
+K14089,ech hydrogenase subunit D,hydrogenase,Hydrogen,other,oxidation
+K14090,ech hydrogenase subunit E,hydrogenase,Hydrogen,other,oxidation
+K14091,ech hydrogenase subunit F,hydrogenase,Hydrogen,other,oxidation
+K14092,energy-converting hydrogenase A subunit A,hydrogenase,Hydrogen,other,oxidation
+K14093,energy-converting hydrogenase A subunit B,hydrogenase,Hydrogen,other,oxidation
+K14094,energy-converting hydrogenase A subunit C,hydrogenase,Hydrogen,other,oxidation
+K14095,energy-converting hydrogenase A subunit D,hydrogenase,Hydrogen,other,oxidation
+K14096,energy-converting hydrogenase A subunit E,hydrogenase,Hydrogen,other,oxidation
+K14097,energy-converting hydrogenase A subunit F,hydrogenase,Hydrogen,other,oxidation
+K14098,energy-converting hydrogenase A subunit G,hydrogenase,Hydrogen,other,oxidation
+K14099,energy-converting hydrogenase A subunit H,hydrogenase,Hydrogen,other,oxidation
+K14100,energy-converting hydrogenase A subunit I,hydrogenase,Hydrogen,other,oxidation
+K14101,energy-converting hydrogenase A subunit J,hydrogenase,Hydrogen,other,oxidation
+K14102,energy-converting hydrogenase A subunit K,hydrogenase,Hydrogen,other,oxidation
+K14103,energy-converting hydrogenase A subunit L,hydrogenase,Hydrogen,other,oxidation
+K14104,energy-converting hydrogenase A subunit M,hydrogenase,Hydrogen,other,oxidation
+K14105,energy-converting hydrogenase A subunit N,hydrogenase,Hydrogen,other,oxidation
+K14106,energy-converting hydrogenase A subunit O,hydrogenase,Hydrogen,other,oxidation
+K14107,energy-converting hydrogenase A subunit P,hydrogenase,Hydrogen,other,oxidation
+K14108,energy-converting hydrogenase A subunit Q,hydrogenase,Hydrogen,other,oxidation
+K14109,energy-converting hydrogenase A subunit R,hydrogenase,Hydrogen,other,oxidation
+K14110,energy-converting hydrogenase B subunit A,hydrogenase,Hydrogen,other,oxidation
+K14111,energy-converting hydrogenase B subunit B,hydrogenase,Hydrogen,other,oxidation
+K14112,energy-converting hydrogenase B subunit C,hydrogenase,Hydrogen,other,oxidation
+K14113,energy-converting hydrogenase B subunit D,hydrogenase,Hydrogen,other,oxidation
+K14114,energy-converting hydrogenase B subunit E,hydrogenase,Hydrogen,other,oxidation
+K14115,energy-converting hydrogenase B subunit F,hydrogenase,Hydrogen,other,oxidation
+K14116,energy-converting hydrogenase B subunit G,hydrogenase,Hydrogen,other,oxidation
+K14117,energy-converting hydrogenase B subunit H,hydrogenase,Hydrogen,other,oxidation
+K14118,energy-converting hydrogenase B subunit I,hydrogenase,Hydrogen,other,oxidation
+K14119,energy-converting hydrogenase B subunit J,hydrogenase,Hydrogen,other,oxidation
+K14120,energy-converting hydrogenase B subunit K,hydrogenase,Hydrogen,other,oxidation
+K14121,energy-converting hydrogenase B subunit L,hydrogenase,Hydrogen,other,oxidation
+K14122,energy-converting hydrogenase B subunit M,hydrogenase,Hydrogen,other,oxidation
+K14123,energy-converting hydrogenase B subunit N,hydrogenase,Hydrogen,other,oxidation
+K14124,energy-converting hydrogenase B subunit O,hydrogenase,Hydrogen,other,oxidation
+K14125,energy-converting hydrogenase B subunit P,hydrogenase,Hydrogen,other,oxidation
+K06862,energy-converting hydrogenase B subunit Q,hydrogenase,Hydrogen,other,oxidation
+K14127,F420-non-reducing hydrogenase iron-sulfur subunit [EC:1.12.99.- 1.8.98.5 1.8.98.6],hydrogenase,Hydrogen,other,oxidation
+K14126,F420-non-reducing hydrogenase large subunit [EC:1.12.99.- 1.8.98.5],hydrogenase,Hydrogen,other,oxidation
+K14128,F420-non-reducing hydrogenase small subunit [EC:1.12.99.- 1.8.98.5],hydrogenase,Hydrogen,other,oxidation
+K00532,ferredoxin hydrogenase [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K06441,ferredoxin hydrogenase gamma subunit [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K00533,ferredoxin hydrogenase large subunit [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K00534,ferredoxin hydrogenase small subunit [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K18016,membrane-bound hydrogenase subunit alpha [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K18017,membrane-bound hydrogenase subunit beta [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K18023,membrane-bound hydrogenase subunit mbhJ [EC:1.12.7.2],hydrogenase,Hydrogen,other,oxidation
+K14070,methanophenazine hydrogenase [EC:1.12.98.3],hydrogenase,Hydrogen,other,oxidation
+K14069,"methanophenazine hydrogenase, cytochrome b subunit [EC:1.12.98.3]",hydrogenase,Hydrogen,other,oxidation
+K14068,"methanophenazine hydrogenase, large subunit [EC:1.12.98.3]",hydrogenase,Hydrogen,other,oxidation
+K00436,NAD-reducing hydrogenase large subunit [EC:1.12.1.2],hydrogenase,Hydrogen,other,oxidation
+K18007,NAD-reducing hydrogenase small subunit [EC:1.12.1.2],hydrogenase,Hydrogen,other,oxidation
+K18330,NADP-reducing hydrogenase subunit HndA [EC:1.12.1.3],hydrogenase,Hydrogen,other,oxidation
+K17992,NADP-reducing hydrogenase subunit HndB [EC:1.12.1.3],hydrogenase,Hydrogen,other,oxidation
+K18331,NADP-reducing hydrogenase subunit HndC [EC:1.12.1.3],hydrogenase,Hydrogen,other,oxidation
+K18332,NADP-reducing hydrogenase subunit HndD [EC:1.12.1.3],hydrogenase,Hydrogen,other,oxidation
+K19640,"putative two-component system protein, hydrogenase maturation factor HypX/HoxX",hydrogenase,Hydrogen,other,oxidation
+K23549,uptake hydrogenase large subunit [EC:1.12.99.6],hydrogenase,Hydrogen,other,oxidation
+K23548,uptake hydrogenase small subunit [EC:1.12.99.6],hydrogenase,Hydrogen,other,oxidation
+K17066,alcohol oxidase [EC:1.1.3.13] [RN:R00608],Methanotrophy,methane,marker,oxidation
+K16157,methane monooxygenase component A [EC:1.14.13.25] [RN:R01142],Methanotrophy,methane,marker,oxidation
+K16158,methane monooxygenase component A [EC:1.14.13.25] [RN:R01142],Methanotrophy,methane,marker,oxidation
+K16159,methane monooxygenase component A [EC:1.14.13.25] [RN:R01142],Methanotrophy,methane,marker,oxidation
+K16161,methane monooxygenase component C [EC:1.14.13.25] [RN:R01142],Methanotrophy,methane,marker,oxidation
+K16162,methane monooxygenase component D [RN:R01142],Methanotrophy,methane,marker,oxidation
+K16160,methane monooxygenase regulatory protein B [RN:R01142],Methanotrophy,methane,other,oxidation
+K10944,methane/ammonia monooxygenase [EC:1.14.18.3] [RN:R09518],Methanotrophy,methane,marker,oxidation
+K10945,methane/ammonia monooxygenase [EC:1.14.18.3] [RN:R09518],Methanotrophy,methane,marker,oxidation
+K10946,methane/ammonia monooxygenase [EC:1.14.18.3] [RN:R09518],Methanotrophy,methane,marker,oxidation
+K14028,methanol dehydrogenase [EC:1.1.2.7] [RN:R01146],Methanotrophy,methane,other,oxidation
+K14029,methanol dehydrogenase [EC:1.1.2.7] [RN:R01146],Methanotrophy,methane,other,oxidation
+K10944,ammonia monooxygenase [EC:1.14.99.39] [RN:R00148],Ammonia oxidation,Nitrogen,marker,oxidation
+K10945,ammonia monooxygenase [EC:1.14.99.39] [RN:R00148],Ammonia oxidation,Nitrogen,marker,oxidation
+K10946,ammonia monooxygenase [EC:1.14.99.39] [RN:R00148],Ammonia oxidation,Nitrogen,marker,oxidation
+K10535,hydroxylamine oxidase [EC:1.7.2.6] [RN:R10164],Ammonia oxidation,Nitrogen,other,oxidation
+K20932,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Ammonia oxidation,Nitrogen,other,oxidation
+K20933,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Ammonia oxidation,Nitrogen,other,oxidation
+K20934,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Ammonia oxidation,Nitrogen,other,oxidation
+K20935,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Ammonia oxidation,Nitrogen,other,oxidation
+K20935,hdh; hydrazine dehydrogenase,Annamox,Nitrogen,other,oxidation
+K10535,"hox, hydroxylamine oxidase [EC:1.7.2.6] [RN:R10164]",Annamox,Nitrogen,other,oxidation
+K20932,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Annamox,Nitrogen,marker,oxidation
+K20933,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Annamox,Nitrogen,marker,oxidation
+K20934,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Annamox,Nitrogen,marker,oxidation
+K20935,hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799],Annamox,Nitrogen,marker,oxidation
+K00368,"nir, nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]",Annamox,Nitrogen,other,oxidation
+K15864,"nir, nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]",Annamox,Nitrogen,other,oxidation
+K00370,"nxr, nitrite oxidoreductase [EC:1.7.99.4] [RN:R00798]",Annamox,Nitrogen,other,oxidation
+K00371,"nxr, nitrite oxidoreductase [EC:1.7.99.4] [RN:R00798]",Annamox,Nitrogen,other,oxidation
+K10944,ammonia monooxygenase [EC:1.14.99.39] [RN:R00148],Complete nitrification,Nitrogen,marker,oxidation
+K10945,ammonia monooxygenase [EC:1.14.99.39] [RN:R00148],Complete nitrification,Nitrogen,marker,oxidation
+K10946,ammonia monooxygenase [EC:1.14.99.39] [RN:R00148],Complete nitrification,Nitrogen,marker,oxidation
+K10535,hydroxylamine oxidase [EC:1.7.2.6] [RN:R10164],Complete nitrification,Nitrogen,marker,oxidation
+K00370,nitrite oxidoreductase [EC:1.7.99.4] [RN:R00798],Complete nitrification,Nitrogen,marker,oxidation
+K00371,nitrite oxidoreductase [EC:1.7.99.4] [RN:R00798],Complete nitrification,Nitrogen,marker,oxidation
+K00370,"nitrate reductase / nitrite oxidoreductase, alpha subunit",Nitrite oxidation,Nitrogen,marker,oxidation
+K00371,"nitrate reductase / nitrite oxidoreductase, beta subunit",Nitrite oxidation,Nitrogen,marker,oxidation
+K17229,fccB-sulfide dehydrogenase [flavocytochrome c] flavoprotein chain [EC:1.8.2.3],Sulfide oxidation,Sulfur,other,oxidation
+K17218,sqr-sulfide:quinone oxidoreductase [EC:1.8.5.4],Sulfide oxidation,Sulfur,other,oxidation
+K00394,aprA-adenylylsulfate reductase-subunit A [EC:1.8.99.2],Sulfite oxidation,Sulfur,marker,oxidation
+K00958,sat-sulfate adenylyltransferase [EC:2.7.7.4],Sulfite oxidation,Sulfur,marker,oxidation
+K03119,tauD-taurine dioxygenase [EC:1.14.11.17],Sulfite production from org. sulfur,Sulfur,other,oxidation
+K11180,dsrA-dissimilatory sulfite reductase alpha subunit [EC:1.8.99.5],Sulfur oxidation,Sulfur,marker,oxidation
+K11181,dsrB-dissimilatory sulfite reductase beta subunit [EC:1.8.99.5],Sulfur oxidation,Sulfur,marker,oxidation
+K17725,sdo-sulfur dioxygenase [EC:1.13.11.18],Sulfur oxidation,Sulfur,other,oxidation
+K16952,sor-sulfur oxygenase/reductase [EC:1.13.11.55],Sulfur oxidation,Sulfur,other,oxidation
+K08352,phsA-thiosulfate reductase / polysulfide reductase chain A [EC:1.8.5.5],Thiosulfate disproportionation,Sulfur,other,oxidation
+K17222,soxA; sulfur-oxidizing protein SoxA,Thiosulfate oxidation,Sulfur,marker,oxidation
+K22622,soxD; S-disulfanyl-L-cysteine oxidoreductase SoxD [EC:1.8.2.6],Thiosulfate oxidation,Sulfur,marker,oxidation
+K17223,soxX; sulfur-oxidizing protein SoxX,Thiosulfate oxidation,Sulfur,marker,oxidation
+K17227,soxZ; sulfur-oxidizing protein SoxZ,Thiosulfate oxidation,Sulfur,marker,oxidation
+K17224,soxB-S-sulfosulfanyl-L-cysteine sulfohydrolase [EC:3.1.6.20],Thiosulfate oxidation,Sulfur,marker,oxidation
+K17225,soxC-sulfane dehydrogenase subunit SoxC,Thiosulfate oxidation,Sulfur,marker,oxidation
+K17226,soxY-sulfur-oxidizing protein SoxY,Thiosulfate oxidation,Sulfur,marker,oxidation
+K00198,"cooS, acsA; anaerobic carbon-monoxide dehydrogenase catalytic subunit [EC:1.2.7.4]",Wood-Ljungdahl pathway,carbon fixation,marker,reduction
+K05299,fdhA; formate dehydrogenase (NADP+) alpha subunit [EC:1.17.1.10],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K15022,fdhB; formate dehydrogenase (NADP+) beta subunit [EC:1.17.1.10],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K22015,fdhF; formate dehydrogenase (hydrogenase) [EC:1.17.98.4 1.17.98.-],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K25123,hydA2; iron hydrogenase HydA2 [EC:1.12.7.-],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K25124,hycB; FeS-containing electron transfer protein,Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K01938,fhs; formate--tetrahydrofolate ligase [EC:6.3.4.3],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K01491,folD; methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydrofolate cyclohydrolase [EC:1.5.1.5 3.5.4.9],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K01500,fchA; methenyltetrahydrofolate cyclohydrolase [EC:3.5.4.9],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K00297,"metF, MTHFR; methylenetetrahydrofolate reductase (NADH) [EC:1.5.1.54]",Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K25007,metV; methylenetetrahydrofolate reductase (NADH) small subunit,Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K25008,rnfC2; ion-translocating oxidoreductase complex subunit C [EC:7.-.-.-],Wood-Ljungdahl pathway,carbon fixation,other,reduction
+K15023,acsE; 5-methyltetrahydrofolate corrinoid/iron sulfur protein methyltransferase [EC:2.1.1.258],Wood-Ljungdahl pathway,carbon fixation,marker,reduction
+K14138,acsB; acetyl-CoA synthase [EC:2.3.1.169],Wood-Ljungdahl pathway,carbon fixation,marker,reduction
+K00197,"cdhE, acsC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245]",Wood-Ljungdahl pathway,carbon fixation,marker,reduction
+K00194,"cdhD, acsD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245]",Wood-Ljungdahl pathway,carbon fixation,marker,reduction
+K00855,"PRK, prkB; phosphoribulokinase [EC:2.7.1.19]",Calvin Cycle,carbon fixation,marker,reduction
+K01601,"rbcL, cbbL; ribulose-bisphosphate carboxylase large chain [EC:4.1.1.39]",Calvin Cycle,carbon fixation,marker,reduction
+K01602,"rbcS, cbbS; ribulose-bisphosphate carboxylase small chain [EC:4.1.1.39]",Calvin Cycle,carbon fixation,marker,reduction
+K00927,"PGK, pgk; phosphoglycerate kinase [EC:2.7.2.3]",Calvin Cycle,carbon fixation,other,reduction
+K05298,GAPA; glyceraldehyde-3-phosphate dehydrogenase (NADP+) (phosphorylating) [EC:1.2.1.13],Calvin Cycle,carbon fixation,other,reduction
+K00150,gap2; glyceraldehyde-3-phosphate dehydrogenase (NAD(P)) [EC:1.2.1.59],Calvin Cycle,carbon fixation,other,reduction
+K00134,"GAPDH, gapA; glyceraldehyde 3-phosphate dehydrogenase (phosphorylating) [EC:1.2.1.12]",Calvin Cycle,carbon fixation,other,reduction
+K01623,"ALDO; fructose-bisphosphate aldolase, class I [EC:4.1.2.13]",Calvin Cycle,carbon fixation,other,reduction
+K01624,"FBA, fbaA; fructose-bisphosphate aldolase, class II [EC:4.1.2.13]",Calvin Cycle,carbon fixation,other,reduction
+K03841,"FBP, fbp; fructose-1,6-bisphosphatase I [EC:3.1.3.11]",Calvin Cycle,carbon fixation,other,reduction
+K02446,"glpX; fructose-1,6-bisphosphatase II [EC:3.1.3.11]",Calvin Cycle,carbon fixation,other,reduction
+K11532,"glpX-SEBP; fructose-1,6-bisphosphatase II / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]",Calvin Cycle,carbon fixation,other,reduction
+K01086,"fbp-SEBP; fructose-1,6-bisphosphatase I / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]",Calvin Cycle,carbon fixation,other,reduction
+K00615,"E2.2.1.1, tktA, tktB; transketolase [EC:2.2.1.1]",Calvin Cycle,carbon fixation,other,reduction
+K01100,E3.1.3.37; sedoheptulose-bisphosphatase [EC:3.1.3.37],Calvin Cycle,carbon fixation,other,reduction
+K11532,"glpX-SEBP; fructose-1,6-bisphosphatase II / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]",Calvin Cycle,carbon fixation,other,reduction
+K01086,"fbp-SEBP; fructose-1,6-bisphosphatase I / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]",Calvin Cycle,carbon fixation,other,reduction
+K01807,rpiA; ribose 5-phosphate isomerase A [EC:5.3.1.6],Calvin Cycle,carbon fixation,other,reduction
+K01808,rpiB; ribose 5-phosphate isomerase B [EC:5.3.1.6],Calvin Cycle,carbon fixation,other,reduction
+K01964,K01964; acetyl-CoA/propionyl-CoA carboxylase [EC:6.4.1.2 6.4.1.3],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15036,K15036; acetyl-CoA/propionyl-CoA carboxylase [EC:6.4.1.2 6.4.1.3 2.1.3.15],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15037,K15037; biotin carboxyl carrier protein,Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15017,K15017; malonyl-CoA/succinyl-CoA reductase (NADPH) [EC:1.2.1.75 1.2.1.76],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K15039,K15039; 3-hydroxypropionate dehydrogenase (NADP+) [EC:1.1.1.298],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K15018,K15018; 3-hydroxypropionyl-coenzyme A synthetase [EC:6.2.1.36],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15019,K15019; 3-hydroxypropionyl-coenzyme A dehydratase [EC:4.2.1.116],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15020,K15020; acryloyl-coenzyme A reductase [EC:1.3.1.84],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K05606,"MCEE, epi; methylmalonyl-CoA/ethylmalonyl-CoA epimerase [EC:5.1.99.1]",Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01848,"E5.4.99.2A, mcmA1; methylmalonyl-CoA mutase, N-terminal domain [EC:5.4.99.2]",Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01849,"E5.4.99.2B, mcmA2; methylmalonyl-CoA mutase, C-terminal domain [EC:5.4.99.2]",Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15038,K15038; succinyl-CoA reductase [EC:1.2.1.76],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K14465,K14465; succinate semialdehyde reductase (NADPH) [EC:1.1.1.-],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K14466,K14466; 4-hydroxybutyrate---CoA ligase (AMP-forming) [EC:6.2.1.40],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K18861,K18861; 4-hydroxybutyrate---CoA ligase (AMP-forming) [EC:6.2.1.40],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K14534,abfD; 4-hydroxybutyryl-CoA dehydratase / vinylacetyl-CoA-Delta-isomerase [EC:4.2.1.120 5.3.3.3],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15016,K15016; enoyl-CoA hydratase / 3-hydroxyacyl-CoA dehydrogenase [EC:4.2.1.17 1.1.1.35],Hydroxypropionate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K00626,"ACAT, atoB; acetyl-CoA C-acetyltransferase [EC:2.3.1.9]",Hydroxypropionate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01961,"accC; acetyl-CoA carboxylase, biotin carboxylase subunit [EC:6.4.1.2 6.3.4.14]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K01962,accA; acetyl-CoA carboxylase carboxyl transferase subunit alpha [EC:6.4.1.2 2.1.3.15],3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K01963,accD; acetyl-CoA carboxylase carboxyl transferase subunit beta [EC:6.4.1.2 2.1.3.15],3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K02160,"accB, bccP; acetyl-CoA carboxylase biotin carboxyl carrier protein",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K14468,mcr; malonyl-CoA reductase / 3-hydroxypropionate dehydrogenase (NADP+) [EC:1.2.1.75 1.1.1.298],3-Hydroxypropionate bi-cycle,carbon fixation,marker,reduction
+K14469,K14469; acrylyl-CoA reductase (NADPH) / 3-hydroxypropionyl-CoA dehydratase / 3-hydroxypropionyl-CoA synthetase [EC:1.3.1.84 4.2.1.116 6.2.1.36],3-Hydroxypropionate bi-cycle,carbon fixation,marker,reduction
+K15052,K15052; propionyl-CoA carboxylase [EC:6.4.1.3 2.1.3.15],3-Hydroxypropionate bi-cycle,carbon fixation,marker,reduction
+K05606,"MCEE, epi; methylmalonyl-CoA/ethylmalonyl-CoA epimerase [EC:5.1.99.1]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K01847,MUT; methylmalonyl-CoA mutase [EC:5.4.99.2],3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K01848,"E5.4.99.2A, mcmA1; methylmalonyl-CoA mutase, N-terminal domain [EC:5.4.99.2]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K01849,"E5.4.99.2B, mcmA2; methylmalonyl-CoA mutase, C-terminal domain [EC:5.4.99.2]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K14471,smtA1; succinyl-CoA:(S)-malate CoA-transferase subunit A [EC:2.8.3.22],3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K14472,smtB; succinyl-CoA:(S)-malate CoA-transferase subunit B [EC:2.8.3.22],3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K00239,"sdhA, frdA; succinate dehydrogenase / fumarate reductase, flavoprotein subunit [EC:1.3.5.1 1.3.5.4]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K00240,"sdhB, frdB; succinate dehydrogenase / fumarate reductase, iron-sulfur subunit [EC:1.3.5.1 1.3.5.4]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K00241,"sdhC, frdC; succinate dehydrogenase / fumarate reductase, cytochrome b subunit",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K01679,"E4.2.1.2B, fumC, FH; fumarate hydratase, class II [EC:4.2.1.2]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K08691,mcl; malyl-CoA/(S)-citramalyl-CoA lyase [EC:4.1.3.24 4.1.3.25],3-Hydroxypropionate bi-cycle,carbon fixation,marker,reduction
+K14449,"mch, mcd; 2-methylfumaryl-CoA hydratase [EC:4.2.1.148]",3-Hydroxypropionate bi-cycle,carbon fixation,other,reduction
+K14470,mct; 2-methylfumaryl-CoA isomerase [EC:5.4.1.3],3-Hydroxypropionate bi-cycle,carbon fixation,marker,reduction
+K09709,meh; 3-methylfumaryl-CoA hydratase [EC:4.2.1.153],3-Hydroxypropionate bi-cycle,carbon fixation,marker,reduction
+K00169,porA; pyruvate ferredoxin oxidoreductase alpha subunit [EC:1.2.7.1],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00170,porB; pyruvate ferredoxin oxidoreductase beta subunit [EC:1.2.7.1],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00171,porD; pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00172,"porC, porG; pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01007,"pps, ppsA; pyruvate, water dikinase [EC:2.7.9.2]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01595,ppc; phosphoenolpyruvate carboxylase [EC:4.1.1.31],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00024,mdh; malate dehydrogenase [EC:1.1.1.37],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01677,"E4.2.1.2AA, fumA; fumarate hydratase subunit alpha [EC:4.2.1.2]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01678,"E4.2.1.2AB, fumB; fumarate hydratase subunit beta [EC:4.2.1.2]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00239,"sdhA, frdA; succinate dehydrogenase / fumarate reductase, flavoprotein subunit [EC:1.3.5.1 1.3.5.4]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00240,"sdhB, frdB; succinate dehydrogenase / fumarate reductase, iron-sulfur subunit [EC:1.3.5.1 1.3.5.4]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00241,"sdhC, frdC; succinate dehydrogenase / fumarate reductase, cytochrome b subunit",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K18860,"sdhD, frdD; putative succinate dehydrogenase / fumarate reductase, subunit D",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01902,sucD; succinyl-CoA synthetase alpha subunit [EC:6.2.1.5],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K01903,sucC; succinyl-CoA synthetase beta subunit [EC:6.2.1.5],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15038,K15038; succinyl-CoA reductase [EC:1.2.1.76],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15017,K15017; malonyl-CoA/succinyl-CoA reductase (NADPH) [EC:1.2.1.75 1.2.1.76],Dicarboxylate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K14465,K14465; succinate semialdehyde reductase (NADPH) [EC:1.1.1.-],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K14467,4hbl; 4-hydroxybutyrate---CoA ligase (AMP-forming) [EC:6.2.1.40],Dicarboxylate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K18861,K18861; 4-hydroxybutyrate---CoA ligase (AMP-forming) [EC:6.2.1.40],Dicarboxylate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K14534,abfD; 4-hydroxybutyryl-CoA dehydratase / vinylacetyl-CoA-Delta-isomerase [EC:4.2.1.120 5.3.3.3],Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K15016,K15016; enoyl-CoA hydratase / 3-hydroxyacyl-CoA dehydrogenase [EC:4.2.1.17 1.1.1.35],Dicarboxylate-hydroxybutylate cycle,carbon fixation,marker,reduction
+K00626,"ACAT, atoB; acetyl-CoA C-acetyltransferase [EC:2.3.1.9]",Dicarboxylate-hydroxybutylate cycle,carbon fixation,other,reduction
+K00169,porA; pyruvate ferredoxin oxidoreductase alpha subunit [EC:1.2.7.1],rTCA Cycle,carbon fixation,other,reduction
+K00170,porB; pyruvate ferredoxin oxidoreductase beta subunit [EC:1.2.7.1],rTCA Cycle,carbon fixation,other,reduction
+K00171,porD; pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1],rTCA Cycle,carbon fixation,other,reduction
+K00172,"porC, porG; pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]",rTCA Cycle,carbon fixation,other,reduction
+K03737,"por, nifJ; pyruvate-ferredoxin/flavodoxin oxidoreductase [EC:1.2.7.1 1.2.7.-]",rTCA Cycle,carbon fixation,other,reduction
+K01007,"pps, ppsA; pyruvate, water dikinase [EC:2.7.9.2]",rTCA Cycle,carbon fixation,other,reduction
+K01006,"ppdK; pyruvate, orthophosphate dikinase [EC:2.7.9.1]",rTCA Cycle,carbon fixation,other,reduction
+K01595,ppc; phosphoenolpyruvate carboxylase [EC:4.1.1.31],rTCA Cycle,carbon fixation,other,reduction
+K01959,pycA; pyruvate carboxylase subunit A [EC:6.4.1.1],rTCA Cycle,carbon fixation,other,reduction
+K01960,pycB; pyruvate carboxylase subunit B [EC:6.4.1.1],rTCA Cycle,carbon fixation,other,reduction
+K01958,"PC, pyc; pyruvate carboxylase [EC:6.4.1.1]",rTCA Cycle,carbon fixation,other,reduction
+K00024,mdh; malate dehydrogenase [EC:1.1.1.37],rTCA Cycle,carbon fixation,other,reduction
+K01676,"E4.2.1.2A, fumA, fumB; fumarate hydratase, class I [EC:4.2.1.2]",rTCA Cycle,carbon fixation,other,reduction
+K01679,"E4.2.1.2B, fumC, FH; fumarate hydratase, class II [EC:4.2.1.2]",rTCA Cycle,carbon fixation,other,reduction
+K01677,"E4.2.1.2AA, fumA; fumarate hydratase subunit alpha [EC:4.2.1.2]",rTCA Cycle,carbon fixation,other,reduction
+K01678,"E4.2.1.2AB, fumB; fumarate hydratase subunit beta [EC:4.2.1.2]",rTCA Cycle,carbon fixation,other,reduction
+K00239,"sdhA, frdA; succinate dehydrogenase / fumarate reductase, flavoprotein subunit [EC:1.3.5.1 1.3.5.4]",rTCA Cycle,carbon fixation,other,reduction
+K00240,"sdhB, frdB; succinate dehydrogenase / fumarate reductase, iron-sulfur subunit [EC:1.3.5.1 1.3.5.4]",rTCA Cycle,carbon fixation,other,reduction
+K00241,"sdhC, frdC; succinate dehydrogenase / fumarate reductase, cytochrome b subunit",rTCA Cycle,carbon fixation,other,reduction
+K00242,"sdhD, frdD; succinate dehydrogenase / fumarate reductase, membrane anchor subunit",rTCA Cycle,carbon fixation,other,reduction
+K00244,frdA; fumarate reductase flavoprotein subunit [EC:1.3.5.4],rTCA Cycle,carbon fixation,other,reduction
+K00245,frdB; fumarate reductase iron-sulfur subunit [EC:1.3.5.4],rTCA Cycle,carbon fixation,other,reduction
+K00246,frdC; fumarate reductase subunit C,rTCA Cycle,carbon fixation,other,reduction
+K00247,frdD; fumarate reductase subunit D,rTCA Cycle,carbon fixation,other,reduction
+K18556,frdA; NADH-dependent fumarate reductase subunit A [EC:1.3.1.6],rTCA Cycle,carbon fixation,other,reduction
+K18557,frdB; NADH-dependent fumarate reductase subunit B [EC:1.3.1.6],rTCA Cycle,carbon fixation,other,reduction
+K18558,frdC; NADH-dependent fumarate reductase subunit C,rTCA Cycle,carbon fixation,other,reduction
+K18559,frdD; NADH-dependent fumarate reductase subunit D,rTCA Cycle,carbon fixation,other,reduction
+K18560,frdE; NADH-dependent fumarate reductase subunit E,rTCA Cycle,carbon fixation,other,reduction
+K01902,sucD; succinyl-CoA synthetase alpha subunit [EC:6.2.1.5],rTCA Cycle,carbon fixation,other,reduction
+K01903,sucC; succinyl-CoA synthetase beta subunit [EC:6.2.1.5],rTCA Cycle,carbon fixation,other,reduction
+K00174,"korA, oorA, oforA; 2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3 1.2.7.11]",rTCA Cycle,carbon fixation,other,reduction
+K00175,"korB, oorB, oforB; 2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit beta [EC:1.2.7.3 1.2.7.11]",rTCA Cycle,carbon fixation,other,reduction
+K00177,"korC, oorC; 2-oxoglutarate ferredoxin oxidoreductase subunit gamma [EC:1.2.7.3]",rTCA Cycle,carbon fixation,other,reduction
+K00176,"korD, oorD; 2-oxoglutarate ferredoxin oxidoreductase subunit delta [EC:1.2.7.3]",rTCA Cycle,carbon fixation,other,reduction
+K00031,"IDH1, IDH2, icd; isocitrate dehydrogenase [EC:1.1.1.42]",rTCA Cycle,carbon fixation,other,reduction
+K01681,"ACO, acnA; aconitate hydratase [EC:4.2.1.3]",rTCA Cycle,carbon fixation,other,reduction
+K01682,acnB; aconitate hydratase 2 / 2-methylisocitrate dehydratase [EC:4.2.1.3 4.2.1.99],rTCA Cycle,carbon fixation,other,reduction
+K15230,aclA; ATP-citrate lyase alpha-subunit [EC:2.3.3.8],rTCA Cycle,carbon fixation,marker,reduction
+K15231,aclB; ATP-citrate lyase beta-subunit [EC:2.3.3.8],rTCA Cycle,carbon fixation,marker,reduction
+K15232,ccsA; citryl-CoA synthetase large subunit [EC:6.2.1.18],rTCA Cycle,carbon fixation,marker,reduction
+K15233,ccsB; citryl-CoA synthetase small subunit,rTCA Cycle,carbon fixation,marker,reduction
+K15234,ccl; citryl-CoA lyase [EC:4.1.3.34],rTCA Cycle,carbon fixation,marker,reduction
+K15551,"Taurine,tauA",organic ion transporter,abc transporter,other,transport
+K11069,"spermidine/putrescine,potD",organic ion transporter,abc transporter,other,transport
+K11073,"putrescine,potF",organic ion transporter,abc transporter,other,transport
+K02002,"glycine betaine/proline,proX ",organic ion transporter,abc transporter,other,transport
+K02000,"glycine betaine/proline,proV",organic ion transporter,abc transporter,other,transport
+K15770,"galactose oligomer/maltoolidosaccharide,ganO",Oligosaccaride transporter,abc transporter,other,transport
+K10111,"galactose oligomer/maltoolidosaccharide,msmX",Oligosaccaride transporter,abc transporter,other,transport
+K10112,"galactose oligomer/maltoolidosaccharide,msmX",Oligosaccaride transporter,abc transporter,other,transport
+K10117,"raffinose,msmE",Oligosaccaride transporter,abc transporter,other,transport
+K10112,"raffinose,msmK",Oligosaccaride transporter,abc transporter,other,transport
+K10227,"sorbitol/mannitol,smoE",Oligosaccaride transporter,abc transporter,other,transport
+K10232,"alpha-glucoside,aglE",Oligosaccaride transporter,abc transporter,other,transport
+K17241,"a-1,4-digalacturonate,aguE",Oligosaccaride transporter,abc transporter,other,transport
+K10236,"trehalose/maltose,thuE",Oligosaccaride transporter,abc transporter,other,transport
+K10112,"cellubiose/chitobiose,msiK",Oligosaccaride transporter,abc transporter,other,transport
+K10112,"arabinooligosaccharide,msmX",Oligosaccaride transporter,abc transporter,other,transport
+K17315,"glucose/mannose ,gtsA",Monosaccharide transporter,abc transporter,other,transport
+K10112,"glucose/mannose ,malK",Monosaccharide transporter,abc transporter,other,transport
+K10439,"ribose/autoinducer 2/D-xylose ,rbsB",Monosaccharide transporter,abc transporter,other,transport
+K10543,"D-xylose ,xylF",Monosaccharide transporter,abc transporter,other,transport
+K10559,"rhamnose,rhaS",Monosaccharide transporter,abc transporter,other,transport
+K17213,"myo-inositol,ibpA",Monosaccharide transporter,abc transporter,other,transport
+K17237,"myo-inositol 1-phosphat,inoE",Monosaccharide transporter,abc transporter,other,transport
+K17240,"myo-inositol 1-phosphat,inoK",Monosaccharide transporter,abc transporter,other,transport
+K17321,"glycerol,glpV",Monosaccharide transporter,abc transporter,other,transport
+K05813,"sn-glycerol-phosphate transport system,ugpB",Monosaccharide transporter,abc transporter,other,transport
+K10001,"glutamate/aspartate,gltI/aatJ",amino acid transporter,abc transporter,other,transport
+K10018,"octopine/nopaline,occT",amino acid transporter,abc transporter,other,transport
+K09969,"gerneral L-amino acid,aapJ",amino acid transporter,abc transporter,other,transport
+K09972,"gerneral L-amino acid,aapP",amino acid transporter,abc transporter,other,transport
+K10022,"arginine/ornithine,aotJ",amino acid transporter,abc transporter,other,transport
+K01999,"branched-chain amino acid,livK",Branched-chain amino acid degradation,abc transporter,other,transport
+K11959,"urea,urtA",amino acid transporter,abc transporter,other,transport
+K11963,"urea,urtE",amino acid transporter,abc transporter,other,transport
+K15580,"oligopeptide,oppA",Peptide transporter,abc transporter,other,transport
+K15583,"oligopeptide,oppD",Peptide transporter,abc transporter,other,transport
+K10823,"oligopeptide,oppF",Peptide transporter,abc transporter,other,transport
+K12368 ,"dipeptide/heme/8-aminolevulinic acid,dppA",Peptide transporter,abc transporter,other,transport
+K11688,"C4-dicarboxyrate,dctP",Two component system,abc transporter,other,transport
+K07795,"tricarboxylates transport,tctC",Two component system,abc transporter,other,transport
+K00826,"branched-chain amino acid aminotransferase,ilvE",Branched-chain amino acid degradation,abc transporter,other,transport
+K01640,"hydroxymethylglutaryl-CoA lyase,hmgL",Branched-chain amino acid degradation,abc transporter,other,transport
+K00020,"3-hydroxyisobutyrate dehydrogenase,mmsB",Branched-chain amino acid degradation,abc transporter,other,transport
+K00382,"dihydrolipoamide dehydrogenase,lpd, pdhD",Branched-chain amino acid degradation,abc transporter,other,transport
+K00531,nitrogenase delta subunit [EC:1.18.6.1],Nitrogenases,Nitrogen,other,reduction
+K02586,nitrogenase molybdenum-iron protein alpha chain [EC:1.18.6.1],Nitrogenases,Nitrogen,marker,reduction
+K02587,nitrogenase molybdenum-cofactor synthesis protein NifE,Nitrogenases,Nitrogen,other,reduction
+K02588,nitrogenase iron protein NifH,Nitrogenases,Nitrogen,marker,reduction
+K02591,nitrogenase molybdenum-iron protein beta chain [EC:1.18.6.1],Nitrogenases,Nitrogen,marker,reduction
+K02592,nitrogenase molybdenum-iron protein NifN,Nitrogenases,Nitrogen,marker,reduction
+K02595,nitrogenase-stabilizing/protective protein,Nitrogenases,Nitrogen,other,reduction
+K22896,vanadium-dependent nitrogenase alpha chain [EC:1.18.6.2],Nitrogenases,Nitrogen,other,reduction
+K22897,vanadium-dependent nitrogenase beta chain [EC:1.18.6.2],Nitrogenases,Nitrogen,other,reduction
+K22898,vanadium nitrogenase delta subunit [EC:1.18.6.2],Nitrogenases,Nitrogen,other,reduction
+K22899,vanadium nitrogenase iron protein,Nitrogenases,Nitrogen,marker,reduction
+K22903,nitrogenase vanadium-cofactor synthesis protein VnfE,Nitrogenases,Nitrogen,other,reduction
+K00370,nitrate reductase 1 [EC:1.7.99.-] [RN:R00798],Denitrification,Nitrogen,other,reduction
+K00371,nitrate reductase 1 [EC:1.7.99.-] [RN:R00798],Denitrification,Nitrogen,other,reduction
+K00374,nitrate reductase 1 [EC:1.7.99.-] [RN:R00798],Denitrification,Nitrogen,other,reduction
+K02567,periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798],Denitrification,Nitrogen,other,reduction
+K02568,"napB; nitrate reductase (cytochrome), electron transfer subunit",Denitrification,Nitrogen,other,reduction
+K00368,"nirK, nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]",Denitrification,Nitrogen,marker,reduction
+K15864,"nirS, nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]",Denitrification,Nitrogen,marker,reduction
+K04561,nitric oxide reductase [EC:1.7.2.5] [RN:R00294],Denitrification,Nitrogen,other,reduction
+K02305,nitric oxide reductase [EC:1.7.2.5] [RN:R00294],Denitrification,Nitrogen,other,reduction
+K15877,fungal nitric oxide reductase [EC:1.7.1.14] [RN:R02492 R09446 R09808 R09809],Denitrification,Nitrogen,other,reduction
+K00376,nitrous-oxide reductase [EC:1.7.2.4] [RN:R02804],Denitrification,Nitrogen,other,reduction
+"	
+K20150",cyc2; iron:rusticyanin reductase,iron redox,metals,marker,oxidation
+K22348,moxA; manganese oxidase ,manganese,metals,marker,oxidation
+K22349,mnxG; manganese oxidase,manganese,metals,marker,oxidation
+K22350,mcoA; manganese oxidase,manganese,metals,marker,oxidation
+K06324,"spore coat protein A, manganese oxidase",manganese,metals,marker,oxidation
