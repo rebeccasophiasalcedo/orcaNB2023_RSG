@@ -85,28 +85,15 @@ filenames = list.files(path = "/scratch/users/rsalcedo/orca_RSG/bin_analysis/kof
 setwd("/scratch/users/rsalcedo/orca_RSG/bin_analysis/kofamscan/csv_processed/")
 
 for (f in filenames) {
-  # Read CSV and convert to data.table
-  genome = fread(f)  # fread is more efficient for reading CSVs into a data.table
-  
-  # Ensure "KO" column exists
+  genome = fread(f)  
   if (!"KO" %in% colnames(genome)) {
     stop(paste("Column 'KO' not found in file:", f))
   }
-  
-  # Select the KO column and add the 'present' column
   genome = genome[, .(gene_id = KO, present = 1)]
-  
-  # Rename the "present" column to the filename without "_processed.csv"
   new_col_name = sub("\\_processed\\.csv$", "", f)
   setnames(genome, "present", new_col_name)
-  
-  # Remove duplicates based on "gene_id"
   genome = genome[!duplicated(gene_id)]
-  
-  # Join with DRAM_KOs
   genome = merge(DRAM_KOs, genome, by = "gene_id", all.x = TRUE)
-  
-  # Assign to a new variable
   assign(paste0("genome_", new_col_name), genome)
 }
 ```
