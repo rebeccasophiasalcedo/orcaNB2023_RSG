@@ -40,11 +40,11 @@ metadata = read_csv(paste0(rootdir, "metadata.csv"))
 S3_package = "/scratch/groups/dekas/OC17_metagenomics_2022/S3.gpkg"
 input_fasta = paste0(rootdir, "RSGsorts_prodigal/faa/merged_sequences.faa")
 output_dir = paste0(rootdir, "RSGsorts_rpS3/graftM/")
-threads <- 20
+threads = 20
 
 dir.create(output_dir, showWarnings = FALSE)
 
-graftM_command <- paste(
+graftM_command = paste(
   "graftM graft",
   "--forward", input_fasta,
   "--output_directory", output_dir,
@@ -52,7 +52,6 @@ graftM_command <- paste(
   "--threads", threads
 )
 
-# Write the command to a shell script file
 sink(paste(rootdir, "sh_scripts/graftM.sh", sep = ""))
 cat("sbatch -J graftM -c 20 --mem-per-cpu 16G -p serc -t 160:00:00 --wrap '", graftM_command, "'")
 sink()
@@ -62,17 +61,17 @@ file.show(paste(rootdir,"sh_scripts/graftM.sh", sep = ""))
 ```{r parse graftM results}
 graftM = read_tsv(paste0(rootdir, "/RSGsorts_rpS3/graftM/merged_sequences/merged_sequences_read_tax.tsv"), col_names = c("sequence_ID", "graftM_taxonomy"))
 
-graftM <- graftM %>%
+graftM = graftM %>%
   mutate(
     file_name = str_extract(sequence_ID, ".*(?=_prodigalORFs)"),  #Capture everything before "prodigalORFs"
     contig = str_extract(sequence_ID, ".*(?=_[^_]+$)") #captures everything before the last underscore and following digits
   )
 
 #merge graftM and metadata to ID which sample is what condition and sort
-metadata_unique <- metadata %>%
+metadata_unique = metadata %>%
   distinct(file_name, .keep_all = TRUE)
 
-graftM_formatted <- graftM %>%
+graftM_formatted = graftM %>%
   left_join(metadata_unique, by = "file_name") %>%
   select(file_name, sequence_ID, contig, sample_type, depth_m, amplified, graftM_taxonomy)
 
@@ -85,12 +84,12 @@ genomes$X = NULL
 
 genomes_mini = select(genomes, c(genome, classification, drep_rep))
 
-genomes_mini <- genomes_mini %>%
+genomes_mini = genomes_mini %>%
   mutate(
     file_name = str_extract(genome, ".*(?=_[^_]*$)")
   )
 
-genomes_mini <- genomes_mini %>%
+genomes_mini = genomes_mini %>%
   left_join(metadata_unique, by = "file_name") %>%
   select(file_name, genome, drep_rep, sample_type, depth_m, amplified, classification)
 
@@ -115,9 +114,7 @@ inactive_rpS3_2224m = graftM_formatted %>%
   filter(sample_type == "Inactive" & depth_m == "2224") %>%
   pull(sequence_ID)
 
-# Prepare presence/absence data for each list
-# Step 1: Combine all lists into a single data frame
-combined_data <- bind_rows(
+combined_data = bind_rows(
   data.frame(entry = active_MAGs_2202m, condition = "active_MAGs_2202m", stringsAsFactors = FALSE),
   data.frame(entry = active_MAGs_2224m, condition = "active_MAGs_2224m", stringsAsFactors = FALSE),
   data.frame(entry = other_MAGs_2224m, condition = "other_MAGs_2224m", stringsAsFactors = FALSE),
@@ -128,25 +125,25 @@ combined_data <- bind_rows(
 )
 
 if ("genome" %in% colnames(genomes_mini)) {
-  genomes_mini <- genomes_mini %>%
-    filter(!is.na(genome)) %>%  # Ensure no missing values in the genome column
-    dplyr::rename(entry = genome)  # Use dplyr::rename explicitly
+  genomes_mini = genomes_mini %>%
+    filter(!is.na(genome)) %>% 
+    dplyr::rename(entry = genome)  
 } else {
   stop("Column 'genome' not found in genomes_mini.")
 }
 
 if ("sequence_ID" %in% colnames(graftM_formatted)) {
-  graftM_formatted <- graftM_formatted %>%
-    filter(!is.na(sequence_ID)) %>%  # Ensure no missing values in the genome column
-    dplyr::rename(entry = sequence_ID)  # Use dplyr::rename explicitly
+  graftM_formatted = graftM_formatted %>%
+    filter(!is.na(sequence_ID)) %>% 
+    dplyr::rename(entry = sequence_ID) 
 } else {
   stop("Column 'sequence_ID' not found in graftM_taxonomy")
 }
 
 if ("graftM_taxonomy" %in% colnames(graftM_formatted)) {
-  graftM_formatted <- graftM_formatted %>%
-    filter(!is.na(graftM_taxonomy)) %>%  # Ensure no missing values in the genome column
-    dplyr::rename(classification = graftM_taxonomy)  # Use dplyr::rename explicitly
+  graftM_formatted = graftM_formatted %>%
+    filter(!is.na(graftM_taxonomy)) %>%  
+    dplyr::rename(classification = graftM_taxonomy)  
 } else {
   stop("Column 'graftM_taxonomy' not found in graftM_taxonomy")
 }
@@ -155,22 +152,21 @@ if ("graftM_taxonomy" %in% colnames(graftM_formatted)) {
 #Add taxonomy information
 
 #rename some things
-combined_data <- combined_data %>%
+combined_data = combined_data %>%
   # Join with genomes_mini for MAG lists, renaming genome_ID to entry
   left_join(genomes_mini %>% select(entry, classification), by = "entry") %>%
   # Join with graftM_formatted for rpS3 lists, renaming sequence_ID to entry
   left_join(graftM_formatted %>% select(entry, classification), by = "entry")
 
-# Replace any NA in the classification columns with the other source
-combined_data <- combined_data %>%
+combined_data = combined_data %>%
   mutate(classification = coalesce(classification.x, classification.y)) %>%
   select(entry, condition, classification)
 
-presence_data <- combined_data %>%
+presence_data = combined_data %>%
   pivot_wider(
     names_from = condition,
     values_from = entry,
-    values_fn = list(entry = ~paste(., collapse = ", ")), # Combine multiple entries with a comma
+    values_fn = list(entry = ~paste(., collapse = ", ")), 
     values_fill = list(entry = NA)
   ) %>%
   pivot_longer(
@@ -184,7 +180,7 @@ presence_data$classification = gsub("Root; ", "", presence_data$classification)
 
 presence_data$classification = gsub(" ", "", presence_data$classification)
 
-presence_data <- presence_data %>%
+presence_data = presence_data %>%
   separate(classification, into = c("domain", "phylum", "class", "order", "family", "genus", "species"), sep = ";", fill = "right") %>%
   mutate(
     phylum = sub("p__", "", phylum),
@@ -195,7 +191,7 @@ presence_data <- presence_data %>%
     species = sub("s__", "", species)
   )
 
-presence_data <- presence_data %>%
+presence_data = presence_data %>%
   mutate(
     split_condition = str_split(condition, "_"),
     RSG_sort = sapply(split_condition, function(x) x[1]),
@@ -207,15 +203,14 @@ presence_data <- presence_data %>%
 
 ```{r plot the data}
 
-classes_with_both <- presence_data %>%
+classes_with_both = presence_data %>%
   filter(sequence_type %in% c("MAGs", "rpS3") & present == TRUE) %>%
   distinct(class, sequence_type) %>%
   group_by(class) %>%
   summarise(has_both = n_distinct(sequence_type) == 2) %>%
   ungroup()
 
-# Step 2: Join this information back to the main data to create sequence_overlap
-presence_data <- presence_data %>%
+presence_data = presence_data %>%
   left_join(classes_with_both, by = "class") %>%
   mutate(
     # Assign 'Both' if class has both MAGs and rpS3 and is present
@@ -223,14 +218,14 @@ presence_data <- presence_data %>%
       has_both & present == TRUE ~ "Both",
       sequence_type == "MAGs" & present == TRUE ~ "MAGs",
       sequence_type == "rpS3" & present == TRUE ~ "rpS3",
-      TRUE ~ NA_character_  # Assign NA if not matching
+      TRUE ~ NA_character_  
     )
   ) %>%
-  select(-has_both)  # Drop the temporary column used for checking
+  select(-has_both)  
 
-plot = ggplot(presence_data %>% filter(!is.na(entry)), aes(x = class, y = depth)) +  # Remove NA in entry column only
-  geom_point(aes(shape = sequence_overlap), size = 3) +  # Change shape based on sequence_overlap
-  scale_shape_manual(values = c("MAGs" = 1, "rpS3" = 8, "Both" = 19)) +  # Add third shape for both sequence types
+plot = ggplot(presence_data %>% filter(!is.na(entry)), aes(x = class, y = depth)) +  
+  geom_point(aes(shape = sequence_overlap), size = 3) +  
+  scale_shape_manual(values = c("MAGs" = 1, "rpS3" = 8, "Both" = 19)) +  
   labs(x = "Taxonomic Class", y = "Depth") +
   theme_bw() +
   theme(
