@@ -113,46 +113,35 @@ system("chmod +x /scratch/users/rsalcedo/orca_RSG/sh_scripts/metabat.sh")
 ```
 
 ```{r rename bins to have informative names}
-# Function to rename files with a specific pattern
-rename_files <- function(directory, pattern) {
+rename_files = function(directory, pattern) {
   # Get all files in the directory that match the pattern .[\d+].fa
-  files <- list.files(directory, pattern = "\\.\\d+\\.fa", full.names = TRUE, all.files = TRUE)
+  files = list.files(directory, pattern = "\\.\\d+\\.fa", full.names = TRUE, all.files = TRUE)
   
-  # Loop over each file and rename
   for (file in files) {
-    # Extract the numeric value using regex
-    num_value <- str_extract(file, "\\d+")
-    
-    # Extract the original filename without the path
-    original_filename <- basename(file)
-    
-    # Create the new filename, appending the original name to ensure uniqueness
-    new_name <- paste0(directory, "/", pattern, num_value, "_", original_filename)
-    
-    # Rename the file
+    num_value = str_extract(file, "\\d+")
+    original_filename = basename(file)
+    new_name = paste0(directory, "/", pattern, num_value, "_", original_filename)
     file.rename(file, new_name)
   }
 }
-# Specify the directories and their new patterns
-dir1 <- "/scratch/users/rsalcedo/orca_RSG/metabat/Orca-CTD10BTL6_S511_bins"
-pattern1 <- "Orca-CTD10BTL6_S511_"
+dir1 = "/scratch/users/rsalcedo/orca_RSG/metabat/Orca-CTD10BTL6_S511_bins"
+pattern1 = "Orca-CTD10BTL6_S511_"
 
-dir2 <- "/scratch/users/rsalcedo/orca_RSG/metabat/Orca-CTD5BTL4_S510_bins"
-pattern2 <- "Orca-CTD5BTL4_S510_"
+dir2 = "/scratch/users/rsalcedo/orca_RSG/metabat/Orca-CTD5BTL4_S510_bins"
+pattern2 = "Orca-CTD5BTL4_S510_"
 
-# Rename files in both directories with different patterns
 rename_files(dir1, pattern1)
 rename_files(dir2, pattern2)
 
 setwd(dir1)
-file_names <- list.files()
-new_file_names <- gsub("_10_\\.", "_", file_names)
+file_names = list.files()
+new_file_names = gsub("_10_\\.", "_", file_names)
 file.rename(from = file_names, to = new_file_names)
 list.files()
 
 setwd(dir2)
-file_names <- list.files()
-new_file_names <- gsub("_5_\\.", "_", file_names)
+file_names = list.files()
+new_file_names = gsub("_5_\\.", "_", file_names)
 file.rename(from = file_names, to = new_file_names)
 list.files()
 ```
@@ -229,8 +218,8 @@ cdb = read.csv(paste0(rootdir,"bin_analysis/drep/data_tables/Cdb.csv"))
 drep_info = select(cdb, genome, primary_cluster, secondary_cluster)
 drep_info$genome = gsub(".fa", "", drep_info$genome)
 
-genome_info <- merge(drep_info, checkM_info, all.y = TRUE, by = "genome")
-genome_info <- genome_info %>%
+genome_info = merge(drep_info, checkM_info, all.y = TRUE, by = "genome")
+genome_info = genome_info %>%
   mutate(drep_rep = ifelse(genome %in% drep_binlist, TRUE, FALSE))
 ```
 
@@ -356,14 +345,14 @@ sample_cov = coverm_QC %>%
   summarise(Mean = sum(Mean))
 
 coverm_QC = left_join(coverm_QC, sample_cov, "Sample")
-coverm_QC <- coverm_QC %>% 
+coverm_QC = coverm_QC %>% 
   rename_with(~ "sample_cov", starts_with("Mean.y"))
-coverm_QC <- coverm_QC %>% 
+coverm_QC = coverm_QC %>% 
   rename_with(~ "genome_cov", starts_with("Mean.x"))
 coverm_QC$relative = coverm_QC$genome_cov/coverm_QC$sample_cov
 
-coverm_QC$Sample <- gsub("_R1_trimmed.fastq", "", coverm_QC$Sample)
-coverm_QC <- coverm_QC %>% 
+coverm_QC$Sample = gsub("_R1_trimmed.fastq", "", coverm_QC$Sample)
+coverm_QC = coverm_QC %>% 
   rename_with(~ "file_name", Sample)
 
 metadata = read_csv(paste0(rootdir, "metadata.csv"))
@@ -387,26 +376,17 @@ dir.create(paste0(rootdir, "bin_analysis/bowtie/sams/"))
 ```
 
 ```{r build index}
-# Generate commands for building Bowtie indexes
-index_commands <- vector("list", length(drep_binlist))
-index <- 1
+index_commands = vector("list", length(drep_binlist))
+index = 1
 
 for (bin in drep_binlist) {
-  # Define input file path for each bin (assuming bins are in .fa format)
-  bin_fasta <- paste0(drepdir, bin, ".fa")
-  
-  # Define output index prefix
-  index_prefix <- paste0(rootdir, "bin_analysis/bowtie/indexes/", bin)
-  
-  # Create the Bowtie build command
-  command <- paste0("sbatch -J ", bin, "_map -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap 'bowtie2-build ", bin_fasta, " ", index_prefix, "'")
-  
-  # Store command in list
-  index_commands[[index]] <- command
-  index <- index + 1
+  bin_fasta = paste0(drepdir, bin, ".fa")
+  index_prefix = paste0(rootdir, "bin_analysis/bowtie/indexes/", bin)
+  command = paste0("sbatch -J ", bin, "_map -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap 'bowtie2-build ", bin_fasta, " ", index_prefix, "'")
+  index_commands[[index]] = command
+  index = index + 1
 }
 
-# Convert list to character vector and write to file
 sink(paste0(rootdir, "sh_scripts/bin_bowtie_index_build.sh"))
   cat(unlist(index_commands), sep = "\n")
 sink()
@@ -414,29 +394,21 @@ file.show(paste0(rootdir, "sh_scripts/bin_bowtie_index_build.sh"))
 ```
 
 ```{r mapping command}
-# Loop through each bin and sample to generate Bowtie commands
-commands <- vector("list", length(drep_binlist) * length(sample_list))
-index <- 1
+commands = vector("list", length(drep_binlist) * length(sample_list))
+index = 1
 
 for (bin in drep_binlist) {
   for (sample in in_situ_samples) {
-    # Define input file paths based on sample names
-    forward_reads <- paste0(seqdir, "trimmed_reads/", sample, "_R1_trimmed.fastq")
-    reverse_reads <- paste0(seqdir, "trimmed_reads/", sample, "_R2_trimmed.fastq")
+    forward_reads = paste0(seqdir, "trimmed_reads/", sample, "_R1_trimmed.fastq")
+    reverse_reads = paste0(seqdir, "trimmed_reads/", sample, "_R2_trimmed.fastq")
+    output_sam = paste0(rootdir, "bin_analysis/bowtie/sams/", sample, "_to_", bin, ".sam")
+    command = paste0("sbatch -J ", bin, "_map -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap 'bowtie2 -x ", rootdir, "bin_analysis/bowtie/indexes/", bin, " -1 ", forward_reads, " -2 ", reverse_reads, " -S ", output_sam, "'")
     
-    # Define output SAM file
-    output_sam <- paste0(rootdir, "bin_analysis/bowtie/sams/", sample, "_to_", bin, ".sam")
-    
-    # Create the Bowtie command
-    command <- paste0("sbatch -J ", bin, "_map -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap 'bowtie2 -x ", rootdir, "bin_analysis/bowtie/indexes/", bin, " -1 ", forward_reads, " -2 ", reverse_reads, " -S ", output_sam, "'")
-    
-    # Store command in list
-    commands[[index]] <- command
-    index <- index + 1
+    commands[[index]] = command
+    index = index + 1
   }
 }
 
-# Print or write the commands to a file if needed
 sink(paste0(rootdir, "sh_scripts/bin_bowtie_map.sh"))
   cat(unlist(commands), sep = "\n") 
 sink()
@@ -444,45 +416,33 @@ file.show(paste0(rootdir, "sh_scripts/bin_bowtie_map.sh"))
 ```
 
 ```{r convert to bam, sort, and index}
-# Define directories
-sam_dir <- paste0(rootdir, "bin_analysis/bowtie/sams/")
-bam_dir <- paste0(rootdir, "bin_analysis/bowtie/bams/")
+sam_dir = paste0(rootdir, "bin_analysis/bowtie/sams/")
+bam_dir = paste0(rootdir, "bin_analysis/bowtie/bams/")
 
-# Create the BAM output directory if it doesn't exist
 dir.create(bam_dir, showWarnings = FALSE)
 
-# List all SAM files
-sam_files <- list.files(sam_dir, pattern = "\\.sam$", full.names = TRUE)
+sam_files = list.files(sam_dir, pattern = "\\.sam$", full.names = TRUE)
 
-# Initialize command lists
-view_commands <- vector("list", length(sam_files))
-sort_commands <- vector("list", length(sam_files))
-index_commands <- vector("list", length(sam_files))
+view_commands = vector("list", length(sam_files))
+sort_commands = vector("list", length(sam_files))
+index_commands = vector("list", length(sam_files))
 
-# Loop through each SAM file to create commands for each step
-index <- 1
+index = 1
 for (sam_file in sam_files) {
-  # Define BAM file name
-  bam_file <- gsub(".sam$", ".bam", basename(sam_file))
-  sorted_bam_file <- gsub(".bam$", "_sorted.bam", bam_file)
+  bam_file = gsub(".sam$", ".bam", basename(sam_file))
+  sorted_bam_file = gsub(".bam$", "_sorted.bam", bam_file)
+  bam_path = paste0(bam_dir, bam_file)
+  sorted_bam_path = paste0(bam_dir, sorted_bam_file)
   
-  # Full paths for output files
-  bam_path <- paste0(bam_dir, bam_file)
-  sorted_bam_path <- paste0(bam_dir, sorted_bam_file)
+  view_commands[[index]] = paste0("samtools view -S -b ", sam_file, " > ", bam_path)
   
-  # Create samtools view command (SAM to BAM)
-  view_commands[[index]] <- paste0("samtools view -S -b ", sam_file, " > ", bam_path)
+  sort_commands[[index]] = paste0("samtools sort ", bam_path, " -o ", sorted_bam_path)
   
-  # Create samtools sort command (sort BAM)
-  sort_commands[[index]] <- paste0("samtools sort ", bam_path, " -o ", sorted_bam_path)
+  index_commands[[index]] = paste0("samtools index ", sorted_bam_path)
   
-  # Create samtools index command (index sorted BAM)
-  index_commands[[index]] <- paste0("samtools index ", sorted_bam_path)
-  
-  index <- index + 1
+  index = index + 1
 }
 
-# Write each set of commands to separate files
 sink(paste0(rootdir, "sh_scripts/bin_convert_to_bam.sh"))
 cat(unlist(view_commands), sep = "\n")
 sink()
@@ -503,31 +463,25 @@ file.show(paste0(rootdir, "sh_scripts/bin_index_bam.sh"))
 
 # iRep
 ```{r generate irep command}
-output_dir <- paste0(rootdir, "genome_iRep_outputs/")
+output_dir = paste0(rootdir, "genome_iRep_outputs/")
 dir.create(output_dir, showWarnings = FALSE)
 
-# Initialize command list
-iRep_commands <- vector("list", length(drep_binlist) * length(sample_list))
+iRep_commands = vector("list", length(drep_binlist) * length(sample_list))
 
-# Generate iRep commands
-index <- 1
+index = 1
 for (bin in drep_binlist) {
   for (sample in sample_list) {
-    # Define genome and SAM file paths for each bin and sample
-    genome_file <- paste0(drepdir, bin, ".fa")
-    sam_file <- paste0(sam_dir, sample, "_to_", bin, ".sam")
-    output_file <- paste0(output_dir, bin, "_", sample, ".iRep")
+    genome_file = paste0(drepdir, bin, ".fa")
+    sam_file = paste0(sam_dir, sample, "_to_", bin, ".sam")
+    output_file = paste0(output_dir, bin, "_", sample, ".iRep")
     
-    # Create iRep command
-    command <- paste0("sbatch -J ", bin, "_map -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap 'iRep -f ", genome_file, " -s ", sam_file, " -o ", output_file, "'")
+    command = paste0("sbatch -J ", bin, "_map -c 20 --mem-per-cpu 4G -p serc -t 160:00:00 --wrap 'iRep -f ", genome_file, " -s ", sam_file, " -o ", output_file, "'")
     
-    # Store command
-    iRep_commands[[index]] <- command
-    index <- index + 1
+    iRep_commands[[index]] = command
+    index = index + 1
   }
 }
 
-# Write the commands to a file
 sink(paste0(rootdir, "sh_scripts/genome_iRep_commands.sh"))
 cat(unlist(iRep_commands), sep = "\n")
 sink()
@@ -542,59 +496,43 @@ setwd(rootdir)
 iRep = read_tsv(paste0(rootdir, "/genome_iRep_outputs/combined_irep_results.tsv"))
 
 
-# Initialize an empty list to store results
-results <- list()
+results = list()
 
-# Loop through each iRep.tsv file in the specified directory
-files <- list.files(paste0(rootdir, "/genome_iRep_outputs/"), pattern = ".iRep.tsv", full.names = TRUE)
+files = list.files(paste0(rootdir, "/genome_iRep_outputs/"), pattern = ".iRep.tsv", full.names = TRUE)
 
 for (item in files) {
-  
-  # Initialize an empty list to store the information
-  info <- list()
-  
-  # Read the file line by line
-  lines <- readLines(item)
-  
-  # Create a new column 'source_file' to store the filename
-  info$source_file <- rep(basename(item), length(lines))  # Replicate the filename for each line
+  info = list()
+  lines = readLines(item)
+  info$source_file = rep(basename(item), length(lines))  # Replicate the filename for each line
   
   for (i in 1:length(lines)) {
-    line <- lines[i]
-    
-    # Check for lines starting with "##"
+    line = lines[i]
     if (grepl("##", line)) {
       if (i == 1) {
-        field <- "genome"
+        field = "genome"
       } else {
-        field <- paste(strsplit(line, " ")[[1]][-1], collapse = "_")
+        field = paste(strsplit(line, " ")[[1]][-1], collapse = "_")
       }
       
-    # Check for lines not starting with "#"
     } else if (!grepl("#", line)) {
       if (field == "genome") {
-        info[[field]] <- c(info[[field]], basename(strsplit(line, "\t")[[1]][1]))
+        info[[field]] = c(info[[field]], basename(strsplit(line, "\t")[[1]][1]))
       } else {
-        info[[field]] <- c(info[[field]], strsplit(line, "\t")[[1]][2])
+        info[[field]] = c(info[[field]], strsplit(line, "\t")[[1]][2])
       }
     }
   }
   
-  # Create a dataframe from the collected information and append to results list
-  results[[length(results) + 1]] <- as.data.frame(info)
+  results[[length(results) + 1]] = as.data.frame(info)
 }
 
-# Combine all dataframes into one
-all_results <- bind_rows(results)
+all_results = bind_rows(results)
 
-# Rename the 'source_file' column to 'sample'
-all_results$sample <- gsub("^.*(?:Orca-CTD10BTL6_S511_|Orca-CTD5BTL4_S510_)[0-9]+_(.*)$", "\\1", all_results$source_file)
-all_results$sample <- gsub(".iRep.tsv", "", all_results$sample)
+all_results$sample = gsub("^.*(?:Orca-CTD10BTL6_S511_|Orca-CTD5BTL4_S510_)[0-9]+_(.*)$", "\\1", all_results$source_file)
+all_results$sample = gsub(".iRep.tsv", "", all_results$sample)
 
-# Remove the 'source_file' column
-all_results <- all_results %>% select(-source_file)
-
-all_results <- all_results %>% distinct()
+all_results = all_results %>% select(-source_file)
+all_results = all_results %>% distinct()
 
 unique(all_results$sample)
 
@@ -606,7 +544,7 @@ write.table(all_results, "~/combined_irep_results.csv", sep = ",", row.names = F
 ```
 
 ```{r plot iRep results}
-all_results <- all_results %>% mutate_all(~gsub("n/a", "0", .))
+all_results = all_results %>% mutate_all(~gsub("n/a", "0", .))
 
 all_results$un.filtered_index_of_replication_.iRep. = as.numeric(all_results$un.filtered_index_of_replication_.iRep.)
 
