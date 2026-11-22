@@ -35,7 +35,7 @@ genome_info = read.csv(paste(rootdir, "genome_info_summary.csv", sep = ""))
 
 ```{r add HCF potential to dram}
 	# Create the dataframe
-HCF_genes <- data.frame(
+HCF_genes = data.frame(
   gene_id = c("K01958","K01959","K01960","K01595","K01968","K01969","K10854","K10855","K10856","K01587","K11808","K01935","K19562"),
   gene_description = c("pyruvate carboxylase", 
         "pyruvate carboxylase subunit A", 
@@ -62,7 +62,7 @@ DRAM_pathways = rbind(HCF_genes, DRAM_pathways)
 ```
 
 ```{r ROS detoxification}
-ROS_genes <- data.frame(
+ROS_genes = data.frame(
   gene_id = c("K09162", "K16627", "K04564", "K04565", "K03781", "K27148"),
   gene_description = c("cld; chlorite dismutase [EC:1.13.11.49]", "SOD3; superoxide dismutase, Cu-Zn family [EC:1.15.1.1]", "SOD2; superoxide dismutase, Fe-Mn family [EC:1.15.1.1]", "SOD1; superoxide dismutase, Cu-Zn family [EC:1.15.1.1]", "katE, CAT, catB, srpA; catalase [EC:1.11.1.6]", "nod; nitric oxide dismutase"),
   module = c("chlorite dismutation", "hydrogen peroxide dismutation", "hydrogen peroxide dismutation", "hydrogen peroxide dismutation", "hydrogen peroxide dismutation", "NO dismutation"),
@@ -103,7 +103,7 @@ for (f in filenames) {
 #get all data frames in list
 df_list = mget(ls(pattern = "genome_O"))
 #clean up the names so its just the bin ID
-names(df_list) <- sub("\\_processed.csv$", "", names(df_list))
+names(df_list) = sub("\\_processed.csv$", "", names(df_list))
 #merge all the dataframes together
 a = do.call("cbind", df_list)
 
@@ -111,7 +111,7 @@ colnames(a)[1] = "KO"
 
 #clean up df by renaming some files and dropping duplicate columns
 colnames(a)[1] = "KO"
-ab <- a %>% select(-contains(".gene_id"))
+ab = a %>% select(-contains(".gene_id"))
 
 #reorder the KO columns so theyre in the same order for when you do cbind since that doesnt look for matches. had to do it this way since merge wasnt working (gave too many rows)
 DRAM_pathways = DRAM_pathways[order(DRAM_pathways$gene_id,decreasing=TRUE),]
@@ -119,8 +119,8 @@ ab = ab[order(ab$KO,decreasing=TRUE),]
 ab = cbind(ab, DRAM_pathways)
 
 #dropping duplicate rows, renaming column headers, and replacing NAs with zeros
-ab <- ab %>% select(-contains("gene_id"))
-ab[is.na(ab)] <- 0
+ab = ab %>% select(-contains("gene_id"))
+ab[is.na(ab)] = 0
 colnames(ab) = gsub("\\..*", "", colnames(ab))
 ```
 
@@ -141,7 +141,7 @@ length(unique(ab_drep$genome))
 
 cleaning up df for plotting
 ```{r}
-ab_drep <- ab_drep %>%
+ab_drep = ab_drep %>%
   mutate(
     phylum = sub(".*p__", "", sub("\\;c.*", "", classification)),
     class = sub(".*c__", "", sub("\\;o.*", "", classification)),
@@ -151,19 +151,19 @@ ab_drep <- ab_drep %>%
 
 ```{r}
 coverm_info = read.csv(paste0(rootdir, "bin_analysis/coverm/coverm_info.csv"))
-active_MAGs_list <- coverm_info %>%
+active_MAGs_list = coverm_info %>%
   filter(amplified == "yes" & covered_fraction >= 0.5) %>%
   pull(genome) %>%
   unique()
 
-active_MAGs_list <- active_MAGs_list[active_MAGs_list != "Orca-CTD10BTL6_S511_19"]
+active_MAGs_list = active_MAGs_list[active_MAGs_list != "Orca-CTD10BTL6_S511_19"]
 
 active_MAGs = ab_drep %>%
   filter(genome %in% active_MAGs_list) %>% 
   filter(gene_type == "marker" | metabolism == "transport") %>%
   filter(present == 1)
 
-active_MAGs <- active_MAGs %>%
+active_MAGs = active_MAGs %>%
   filter(
     !( 
       (KO %in% c("K10944", "K10945", "K10946") & genome == "Orca-CTD5BTL4_S510_5" & header == "methane") |
@@ -182,7 +182,7 @@ write.csv(active_coverm, paste0(rootdir, "/output_csvs/active_coverm.csv"))
 ```
 
 ```{r}
-active_MAGs$header <- gsub("ROS detoxification", "ROS", gsub("Heterotrophic Carbon Fixation", "HICF", gsub("abc transporter", "ABC Transporter", gsub("carbon fixation", "Autotrophy", active_MAGs$header))))
+active_MAGs$header = gsub("ROS detoxification", "ROS", gsub("Heterotrophic Carbon Fixation", "HICF", gsub("abc transporter", "ABC Transporter", gsub("carbon fixation", "Autotrophy", active_MAGs$header))))
 
 active_MAGs$header
 ```
@@ -194,18 +194,18 @@ unique(active_MAGs$KO)
 
 ```{r}
 
-module_colors <- c("Wood-Ljungdahl pathway" = "#800000", "Dicarboxylate-hydroxybutylate cycle" = "#B84B4B", "Hydroxypropionate-hydroxybutylate cycle" = "#B84B4B", "Ammonia oxidation" = "springgreen2", "Complete nitrification" = "springgreen4", "Branched-chain amino acid degradation" = "royalblue4", "biotin synthesis" = "lightskyblue", "glycine cleavage system" = "lightsteelblue3", "hydrogen peroxide dismutation" = "gray", "Sulfite oxidation" = "palegreen")
+module_colors = c("Wood-Ljungdahl pathway" = "#800000", "Dicarboxylate-hydroxybutylate cycle" = "#B84B4B", "Hydroxypropionate-hydroxybutylate cycle" = "#B84B4B", "Ammonia oxidation" = "springgreen2", "Complete nitrification" = "springgreen4", "Branched-chain amino acid degradation" = "royalblue4", "biotin synthesis" = "lightskyblue", "glycine cleavage system" = "lightsteelblue3", "hydrogen peroxide dismutation" = "gray", "Sulfite oxidation" = "palegreen")
 
-active_MAGs$header <- factor(active_MAGs$header, levels = c("ABC Transporter", "HICF", "Glycine", "Autotrophy", "Nitrogen", "Sulfur", "ROS"))
+active_MAGs$header = factor(active_MAGs$header, levels = c("ABC Transporter", "HICF", "Glycine", "Autotrophy", "Nitrogen", "Sulfur", "ROS"))
 
 # Custom KO list
 
-ko_mapping <- data.frame(
+ko_mapping = data.frame(
   KO = c("K15023", "K15016", "K10946", "K10945", "K10944", "K10535", "K04564", "K02437", "K01999", "K01935", "K00826", "K00605", "K00394", "K00382", "K00283", "K00194"),
   Name = c("acsE", "ECH/HAD", "amoC", "amoB", "amoA", "hao", "SOD2", "gcvH", "livK", "bioD", "ilvE", "gcvT", "aprA", "pdhD", "gcvPB", "acsD") # Names associated with KOs
 )
 
-data <- merge(active_MAGs, ko_mapping, by = "KO")
+data = merge(active_MAGs, ko_mapping, by = "KO")
 
 ggplot(data, aes(x = Name, y = genome, fill = module, alpha = present)) +
   geom_tile(colour = "white") +
